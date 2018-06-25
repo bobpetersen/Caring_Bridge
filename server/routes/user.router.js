@@ -1,7 +1,7 @@
 const express = require('express');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const encryptLib = require('../modules/encryption');
-const Person = require('../models/Person');
+const Auditor = require('../models/Auditor');
 const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
@@ -19,8 +19,8 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
 
-  const newPerson = new Person({ username, password });
-  newPerson.save()
+  const newAuditor = new Auditor({ username, password });
+  newAuditor.save()
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });
 });
@@ -44,14 +44,27 @@ router.get('/logout', (req, res) => {
 
 // returns array of all user objects, except passwords
 router.get('/all', (req, res) => {
-  
+  Auditor.find({})
+  .then((results) => {
+    res.send(results);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 });
 
 // deactivate or reactivate user
 // requires param: username
 // requires body: 'status' true if re-activating profile, false if deactivating profile
 router.put('/active/:username', (req, res) => {
-
+  Auditor.findByIdAndUpdate(username, req.body)
+  .then(() => {
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log(error);
+    res.sendStatus(500);
+  });
 });
 
 // makes user admin or not admin
