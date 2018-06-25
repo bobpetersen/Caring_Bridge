@@ -63,3 +63,6 @@ typings/
 
 # ignore package-lock as it complicates merging
 package-lock.json
+
+# ignore weird visual studio files
+.vs/
