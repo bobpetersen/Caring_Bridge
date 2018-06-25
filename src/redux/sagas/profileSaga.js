@@ -4,8 +4,10 @@ function* getProfiles() {
     
 }
 
+// set status of profile
+// include action.payload with 'reset', 'spam', or 'notSpam'
 function* setProfileStatus() {
-    
+
 }
 
 function* profileSaga() {

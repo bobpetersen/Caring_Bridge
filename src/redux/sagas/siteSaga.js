@@ -4,8 +4,10 @@ function* getSites() {
 
 }
 
+// set status of site
+// include action.payload with 'reset', 'spam', or 'notSpam'
 function* setSiteStatus() {
-  
+
 }
 
 function* scanSaga() {
