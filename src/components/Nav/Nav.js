@@ -11,8 +11,8 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-          <Link to="/info">
-            Info Page
+          <Link to="/admin">
+            Admin Page
           </Link>
         </li>
         <li>
@@ -22,12 +22,17 @@ const Nav = () => (
         </li>
         <li>
           <Link to="/site">
-            Site PAge
+            Site Page
           </Link>
         </li>
         <li>
-          <Link to="/admin">
-            Admin Page
+          <Link to="/profileform">
+            Profile Form
+          </Link>
+        </li>
+        <li>
+          <Link to="/siteform">
+          Site Form
           </Link>
         </li>
       </ul>

@@ -26,7 +26,7 @@ class SiteView extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h2>Site View</h2>
+          <p>Site View</p>
           {/* insert siteData here ex. <SiteView/> */}
         </div>
       );

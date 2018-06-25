@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class ProfilePage extends Component {
+class ProfileView extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
@@ -27,7 +27,7 @@ class ProfilePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h2>Profile View</h2>
+          <p>Profile View</p>
           {/* insert profileData here ex. <ProfileView/> */}
         </div>
       );
@@ -43,5 +43,5 @@ class ProfilePage extends Component {
 }
 
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps)(ProfileView);
 

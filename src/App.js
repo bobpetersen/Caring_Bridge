@@ -9,7 +9,8 @@ import {
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
-import InfoPage from './components/InfoPage/InfoPage';
+import DevelopmentProfile from './components/DevelopmentPage/DevelopmentProfile';
+import DevelopmentSite from './components/DevelopmentPage/DevelopmentSite';
 import DashboardView from './components/DashboardPage/DashboardView';
 import AdminView from './components/AdminPage/AdminView';
 import ProfileView from './components/ProfilePage/ProfileView';
@@ -48,8 +49,12 @@ const App = () => (
           component={DashboardView}
         />
         <Route
-          path="/info"
-          component={InfoPage}
+          path="/profileform"
+          component={DevelopmentProfile}
+        />
+        <Route
+          path="/siteform"
+          component={DevelopmentSite}
         />
         {/* OTHERWISE no path */}
         <Route

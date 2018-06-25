@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
+import RegisterEmployee from './RegisterEmployee';
 
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -29,11 +30,11 @@ class AdminPage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>
-            <h2>Admin View</h2>
+          <p>Admin View</p>
               {/* insert Admin Data here ex. <AdminData/> */}
+              <RegisterEmployee/> 
 
-          </p>
+     
         </div>
       );
     }
