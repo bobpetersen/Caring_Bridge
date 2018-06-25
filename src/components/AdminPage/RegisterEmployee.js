@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
+import axios from 'axios';
 
-const mapStateToProps = state => ({
-  user: state.user,
-  login: state.login,
-});
-
-class LoginPage extends Component {
+class RegisterEmployee extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       username: '',
       password: '',
+      message: '',
     };
   }
 
-  componentDidMount() {
-    this.props.dispatch(clearError());
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.userName) {
-      this.props.history.push('/dash');
-    }
-  }
-
-  login = (event) => {
+  registerUser = (event) => {
     event.preventDefault();
 
     if (this.state.username === '' || this.state.password === '') {
-      this.props.dispatch(formError());
+      this.setState({
+        message: 'Choose a username and password!',
+      });
     } else {
-      this.props.dispatch(triggerLogin(this.state.username, this.state.password));
+      const body = {
+        username: this.state.username,
+        password: this.state.password,
+      };
+
+      // making the request to the server to post the new user's registration
+      axios.post('/api/user/register/', body)
+        .then((response) => {
+          if (response.status === 201) {
+            this.props.history.push('/home');
+          } else {
+            this.setState({
+              message: 'Ooops! That didn\'t work. The username might already be taken. Try again!',
+            });
+          }
+        })
+        .catch(() => {
+          this.setState({
+            message: 'Ooops! Something went wrong! Is the server running?',
+          });
+        });
     }
   }
 
@@ -49,13 +56,13 @@ class LoginPage extends Component {
   }
 
   renderAlert = () => {
-    if (this.props.login.message !== '') {
+    if (this.state.message !== '') {
       return (
         <h2
           className="alert"
           role="alert"
         >
-          { this.props.login.message }
+          {this.state.message}
         </h2>
       );
     }
@@ -65,9 +72,9 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        { this.renderAlert() }
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
+        {this.renderAlert()}
+        <form onSubmit={this.registerUser}>
+          <h1>Register Employee</h1>
           <div>
             <label htmlFor="username">
               Username:
@@ -94,9 +101,9 @@ class LoginPage extends Component {
             <input
               type="submit"
               name="submit"
-              value="Log In"
+              value="Register"
             />
-            <Link to="/register">Register</Link>
+            <Link to="/home">Cancel</Link>
           </div>
         </form>
       </div>
@@ -104,5 +111,5 @@ class LoginPage extends Component {
   }
 }
 
+export default RegisterEmployee;
 
-export default connect(mapStateToProps)(LoginPage);

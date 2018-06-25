@@ -6,13 +6,33 @@ const Nav = () => (
     <div>
       <ul>
         <li>
-          <Link to="/user">
-            User Home
+          <Link to="/dash">
+            Dashboard
           </Link>
         </li>
         <li>
-          <Link to="/info">
-            Info Page
+          <Link to="/admin">
+            Admin Page
+          </Link>
+        </li>
+        <li>
+          <Link to="/profile">
+            Profile page
+          </Link>
+        </li>
+        <li>
+          <Link to="/site">
+            Site Page
+          </Link>
+        </li>
+        <li>
+          <Link to="/profileform">
+            Profile Form
+          </Link>
+        </li>
+        <li>
+          <Link to="/siteform">
+          Site Form
           </Link>
         </li>
       </ul>
