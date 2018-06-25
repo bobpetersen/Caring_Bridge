@@ -40,4 +40,31 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+///////////////////////////// CODE TO BE WRITTEN BY US //////////////////////////////////////
+
+// returns array of all user objects, except passwords
+router.get('/all', (req, res) => {
+  
+});
+
+// deactivate or reactivate user
+// requires param: username
+// requires body: 'status' true if re-activating profile, false if deactivating profile
+router.put('/active/:username', (req, res) => {
+
+});
+
+// makes user admin or not admin
+// requires param: username
+// requires body: 'admin' true if making admin, false is making not admin
+router.put('/admin/:username', (req, res) => {
+
+});
+
+
+//will enable deprecated accounts to be deleted
+router.delete('/:username', (req, res) => {
+
+});
+
 module.exports = router;
