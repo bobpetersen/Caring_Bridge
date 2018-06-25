@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callUser } from '../requests/userRequests';
 
@@ -24,6 +24,19 @@ function* fetchUser() {
     });
   }
 }
+
+// edit user status
+// action should have payload: true or false, 
+function* activeUser() {
+
+}
+
+// edit admin status
+// action should have payload: true or false
+function* adminStatus() {
+
+}
+
 /*
   Starts fetchUser on each dispatched `FETCH_USER` action.
   Allows concurrent fetches of user.
@@ -41,6 +54,8 @@ function* fetchUser() {
 */
 function* userSaga() {
   yield takeLatest(USER_ACTIONS.FETCH_USER, fetchUser);
+  yield takeEvery('ACTIVE_USER', activeUser);
+  yield takeEvery('ADMIN_STATUS', adminStatus);
 }
 
 export default userSaga;

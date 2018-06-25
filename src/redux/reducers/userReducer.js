@@ -23,7 +23,13 @@ const isLoading = (state = false, action) => {
   }
 };
 
+// state is array of all user objects, for admin/add user page
+const allUsers = (state = [], action) => {
+  return state;
+}
+
 export default combineReducers({
   userName,
   isLoading,
+  allUsers,
 });
