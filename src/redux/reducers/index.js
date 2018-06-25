@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
-import user from './userReducer';
 import login from './loginReducer';
+import profileReducer from './profileReducer';
+import scanReducer from './scanReducer';
+import siteReducer from './siteReducer'
+import user from './userReducer';
 
 const store = combineReducers({
-  user,
   login,
+  profileReducer,
+  scanReducer,
+  siteReducer,
+  user,
 });
 
 export default store;
