@@ -12,42 +12,23 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class Dashboard extends Component {
+class ProfilePage extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
+      // fetch profile action data
     });
   }
 
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
-    }
-  }
-
-  logout = () => {
-    this.props.dispatch({
-      type: LOGIN_ACTIONS.LOGOUT
-    });
-    // this.props.history.push('home');
-  }
-
+ 
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1
-            id="welcome"
-          >
-            Welcome, { this.props.user.userName }!
-          </h1>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+          <h2>Profile View</h2>
+          {/* insert profileData here ex. <ProfileView/> */}
         </div>
       );
     }
@@ -61,6 +42,6 @@ class Dashboard extends Component {
   }
 }
 
-// this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(Dashboard);
+
+export default connect(mapStateToProps)(ProfilePage);
 
