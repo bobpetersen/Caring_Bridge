@@ -1,4 +1,4 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callUser } from '../requests/userRequests';
 
@@ -28,7 +28,7 @@ function* fetchUser() {
 // edit user status
 // action should have payload: true or false, 
 function* activeUser() {
-
+  yield call(axios.put, 'api/user/')
 }
 
 // edit admin status
