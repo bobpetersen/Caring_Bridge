@@ -28,12 +28,19 @@ function* fetchUser() {
 // edit user status
 // action should have payload: true or false, 
 function* activeUser() {
-  yield call(axios.put, 'api/user/')
+  yield call(axios.put, 'api/user/', {is_active: action.payload});
+  yield put({type: 'ALL_USERS'});
 }
 
 // edit admin status
 // action should have payload: true or false
 function* adminStatus() {
+  yield call(axios.put, 'api/user/', {is_admin: action.payload});
+  yield put({type: 'ALL_USERS'});
+}
+
+// get all users from database
+function* getAllUsers() {
 
 }
 
@@ -56,6 +63,7 @@ function* userSaga() {
   yield takeLatest(USER_ACTIONS.FETCH_USER, fetchUser);
   yield takeEvery('ACTIVE_USER', activeUser);
   yield takeEvery('ADMIN_STATUS', adminStatus);
+  yield takeEvery('ALL_USERS', getAllUsers);
 }
 
 export default userSaga;
