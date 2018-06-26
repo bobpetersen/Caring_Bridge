@@ -41,7 +41,8 @@ function* adminStatus() {
 
 // get all users from database
 function* getAllUsers() {
-
+  let users = yield call(axios.get, 'api/user/all');
+  yield put({type: 'SET_ALL_USERS', payload: users.data});
 }
 
 /*
