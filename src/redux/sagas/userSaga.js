@@ -1,6 +1,7 @@
 import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callUser } from '../requests/userRequests';
+import axios from 'axios';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -27,14 +28,14 @@ function* fetchUser() {
 
 // edit user status
 // action should have payload: true or false, 
-function* activeUser() {
+function* activeUser(action) {
   yield call(axios.put, 'api/user/', {is_active: action.payload});
   yield put({type: 'ALL_USERS'});
 }
 
 // edit admin status
 // action should have payload: true or false
-function* adminStatus() {
+function* adminStatus(action) {
   yield call(axios.put, 'api/user/', {is_admin: action.payload});
   yield put({type: 'ALL_USERS'});
 }
