@@ -1,6 +1,7 @@
 
 
 const expect = require('chai').expect;
+import checkURL from '../filter/checkURL';
 
 // Unit Testing for .com .net .cn .co .uk .in 
 describe('checkURL module', () => {
