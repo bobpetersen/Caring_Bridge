@@ -16,7 +16,8 @@ const checkURL = text => {
     return true;
   } 
   // check for popular domain endings
-  else if (/[.com|.de|.cn|.net|.uk|.in]\b/.test(text)) {
+  // if these strings (including the period) appear, will return true (spam)
+  else if (/[.com|.de|.cn|.net|.uk|.in]/.test(text)) {
     return true;
   }
   // if haven't found anything, return false
