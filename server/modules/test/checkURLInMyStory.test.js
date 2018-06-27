@@ -1,6 +1,5 @@
 const expect = require('chai').expect
-
-.com .net .de .cn .uk .in 
+ 
 
 describe('checkURLInMyStory'), () => {
     describe ('base cases for .com'), () => {
