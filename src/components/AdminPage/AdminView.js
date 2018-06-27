@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
-import RegisterEmployee from './RegisterEmployee';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import AdminData from './AdminData';
 
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -32,7 +33,8 @@ class AdminPage extends Component {
         <div>
           <p>Admin View</p>
               {/* insert Admin Data here ex. <AdminData/> */}
-              <RegisterEmployee/> 
+              <RegisterPage /> 
+              <AdminData />
 
      
         </div>

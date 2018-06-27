@@ -62,8 +62,8 @@ router.get('/all', (req, res) => {
 
 //can deactivate or reactivate user OR change admin status
 // requires body: _id
-// if changing activated status: requires body: 'status' value of true or false
-// if changing admin status: requires body: 'admin' value of true or false
+// if changing activated status: requires body: 'is_active' value of true or false
+// if changing admin status: requires body: 'is_admin' value of true or false
 router.put('/', (req, res) => {
   if (req.isAuthenticated() && req.user.is_admin && req.user.is_active) {
     Auditor.findByIdAndUpdate(req.body._id, req.body)
