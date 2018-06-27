@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-// Unit Testing for .com .net .cn .co .uk in 
+// Unit Testing for .com .net .cn .co .uk .in 
 describe('checkURL module', () => {
     describe('edge cases', () => {
         it('should return true if function contains an http://', () => {
@@ -119,7 +119,7 @@ describe('checkURL module', () => {
         it('should return true when passed a string starts with http:// and ends with .in with all integers', () => {
             expect(checkURL('http://111111.in').to.be.true);
         });
-    });net
+    })
 
 })
 
