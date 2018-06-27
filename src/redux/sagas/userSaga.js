@@ -6,7 +6,9 @@ import axios from 'axios';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
   try {
-    yield put({ type: USER_ACTIONS.REQUEST_START });
+    yield put({
+      type: USER_ACTIONS.REQUEST_START
+    });
     const user = yield callUser();
     yield put({
       type: USER_ACTIONS.SET_USER,
@@ -33,6 +35,8 @@ function* activeUser(action) {
   yield put({type: 'ALL_USERS'});
 }
 
+
+
 // edit admin status
 // action should have payload: true or false
 function* adminStatus(action) {
@@ -46,13 +50,18 @@ function* getAllUsers() {
   yield put({type: 'SET_ALL_USERS', payload: users.data});
 }
 
+
+
+// get all users from database
+
+
 /*
   Starts fetchUser on each dispatched `FETCH_USER` action.
   Allows concurrent fetches of user.
 */
-// function* userSaga() {
-//   yield takeEvery('FETCH_USER', fetchUser);
-// }
+function* userSaga() {
+  yield takeEvery('FETCH_USER', fetchUser);
+}
 
 /*
   Alternatively you may use takeLatest.
