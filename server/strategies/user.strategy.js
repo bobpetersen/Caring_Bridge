@@ -1,14 +1,14 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const encryptLib = require('../modules/encryption');
-const Person = require('../models/Person');
+const Auditor = require('../models/Auditor');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  Person.findById(id).then((result) => {
+  Auditor.findById(id).then((result) => {
     // Handle Errors
     const user = result;
 
@@ -20,6 +20,8 @@ passport.deserializeUser((id, done) => {
       const userInfo = {
         username: user.username,
         _id: user._id,
+        is_admin: user.is_admin,
+        is_active: user.is_active,
       };
       
       console.log('user info: ', userInfo);
@@ -37,7 +39,7 @@ passport.use('local', new LocalStrategy({
   passReqToCallback: true,
   usernameField: 'username',
 }, ((req, username, password, done) => {
-    Person.find({ username })
+    Auditor.find({ username })
       .then((result) => {
         const user = result && result[0];
         if (user && encryptLib.comparePassword(password, user.password)) {

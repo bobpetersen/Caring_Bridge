@@ -39,5 +39,17 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
     "nodemon": "^1.17.2"
-  }
+  },
+  "description": "##Contributors - ** Rory Ivance - ** Ellen Keal - ** Bob Petersen - ** Jason Phan - ** Emily Kay",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Project-Nospam/Caring_Bridge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Project-Nospam/Caring_Bridge/issues"
+  },
+  "homepage": "https://github.com/Project-Nospam/Caring_Bridge#readme"
 }
