@@ -25,7 +25,12 @@ const isLoading = (state = false, action) => {
 
 // state is array of all user objects, for admin/add user page
 const allUsers = (state = [], action) => {
-  return state;
+  switch(action.type) {
+    case 'SET_ALL_USERS':
+      return action.payload;
+          default:
+          return state;
+  }
 }
 
 export default combineReducers({

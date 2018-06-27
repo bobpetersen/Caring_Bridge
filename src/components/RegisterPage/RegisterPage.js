@@ -30,6 +30,7 @@ class RegisterPage extends Component {
       axios.post('/api/user/register/', body)
         .then((response) => {
           if (response.status === 201) {
+            console.log('user created:', response);
             this.props.history.push('/home');
           } else {
             this.setState({
@@ -38,9 +39,6 @@ class RegisterPage extends Component {
           }
         })
         .catch(() => {
-          this.setState({
-            message: 'Ooops! Something went wrong! Is the server running?',
-          });
         });
     }
   }

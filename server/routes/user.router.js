@@ -47,6 +47,23 @@ router.get('/all', (req, res) => {
   
 });
 
+// DELETE THIS//////////////////////////////////////////////////////////////////////////
+router.get('/all', (req, res) => {
+  if (req.isAuthenticated() && req.user.is_admin && req.user.is_active) {
+    Auditor.find({}, {
+        password: 0
+      })
+      .then((results) => {
+        res.send(results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
 // deactivate or reactivate user
 // requires param: username
 // requires body: 'status' true if re-activating profile, false if deactivating profile
