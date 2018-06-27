@@ -24,3 +24,5 @@ const checkURL = text => {
     return false;
   }
 }
+
+module.exports = checkURL;
