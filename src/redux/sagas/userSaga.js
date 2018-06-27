@@ -1,14 +1,23 @@
-import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
-import { USER_ACTIONS } from '../actions/userActions';
-import { callUser } from '../requests/userRequests';
+import {
+  put,
+  takeLatest,
+  takeEvery,
+  call
+} from 'redux-saga/effects';
+import {
+  USER_ACTIONS
+} from '../actions/userActions';
+import {
+  callUser
+} from '../requests/userRequests';
 
-// DELETE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
-import axios from 'axios';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
   try {
-    yield put({ type: USER_ACTIONS.REQUEST_START });
+    yield put({
+      type: USER_ACTIONS.REQUEST_START
+    });
     const user = yield callUser();
     yield put({
       type: USER_ACTIONS.SET_USER,
@@ -30,54 +39,30 @@ function* fetchUser() {
 
 // edit user status
 // action should have payload: true or false, 
-// function* activeUser() {
+function* activeUser() {
 
-// }
+}
 
 
 
 // edit admin status
 // action should have payload: true or false
-// function* adminStatus() {
+function* adminStatus() {
 
-// }
-
-// DELETE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
-function* activeUser(action) {
-  yield call(axios.put, 'api/user/', {
-    is_active: action.payload
-  });
-  yield put({
-    type: 'ALL_USERS'
-  });
 }
 
-// DELETE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
-function* adminStatus(action) {
-  yield call(axios.put, 'api/user/', {
-    is_admin: action.payload
-  });
-  yield put({
-    type: 'ALL_USERS'
-  });
-}
 
-// get all users from database DELETE THIS !!!!!!!!!!!!
-function* getAllUsers() {
-  let users = yield call(axios.get, 'api/user/all');
-  yield put({
-    type: 'SET_ALL_USERS',
-    payload: users.data
-  });
-}
+
+// get all users from database
+
 
 /*
   Starts fetchUser on each dispatched `FETCH_USER` action.
   Allows concurrent fetches of user.
 */
-// function* userSaga() {
-//   yield takeEvery('FETCH_USER', fetchUser);
-// }
+function* userSaga() {
+  yield takeEvery('FETCH_USER', fetchUser);
+}
 
 /*
   Alternatively you may use takeLatest.
@@ -90,9 +75,6 @@ function* userSaga() {
   yield takeLatest(USER_ACTIONS.FETCH_USER, fetchUser);
   yield takeEvery('ACTIVE_USER', activeUser);
   yield takeEvery('ADMIN_STATUS', adminStatus);
-
-// DELETE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
-  yield takeEvery('ALL_USERS', getAllUsers);
 }
 
 export default userSaga;

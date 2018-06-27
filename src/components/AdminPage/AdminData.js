@@ -11,48 +11,52 @@ const mapStateToProps = state => ({
 class AdminData extends Component {
   constructor(props) {
     super(props);
-    // state({
-    //   deactivate: false, 
-    // })
+    state({
+      deactivate: false, 
+    })
   }
-  componentDidMount() {
+    componentDidMount() {
     this.props.dispatch({
-      type: USER_ACTIONS.FETCH_USER
+        type: USER_ACTIONS.FETCH_USER
+    });
+    this.props.dispatch({
+        type: 'ALL_USERS'
     });
   }
 
-handleClickForDeactivate = () => {
-  console.log('Deactivate button click ');
-  // this.setState({
-  //   deactivate: true,
-  // })
+    handleClickForDeactivate = () => {
+        console.log('Deactivate button click ');
+  this.setState({
+    deactivate: true,
+  })
 }
-
-
 // Admin Table data goes here
-
   render() {
     {this.props.user.username}
-    
     return (
       <div>
         <h2>Admin Data Table</h2>
-        <table>
-          <tbody>
-          <tr>
-            <th>User Name</th>
-            <th>Deactivate</th>
-            <th>Password</th>
-          </tr>
-            </tbody>
-        </table>
-        <div>
-                  {/* <ul> 
-                  {this.props.user.map((user, i) =><li key ={i}> {user.username}</li> )} 
-                  </ul> */}
-                  </div>
-                  { JSON.stringify( [this.props.user] ) }
-      </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Deactivate</th>
+                        <th>Password</th>
+                    </tr>
+                    <tr>
+                        {this.props.user.allUsers.map((user, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>{user.username}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            );
+                        })}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     );
   }
 }
