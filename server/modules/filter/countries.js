@@ -3,6 +3,11 @@
 
 let blacklistCountries = [
   'India',
+  'China',
+  'Indonesia',
+  'Australia',
+  'Russia',
+  'Pakistan',
 ];
 
 module.exports = blacklistCountries;
