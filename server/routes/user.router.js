@@ -46,6 +46,7 @@ router.get('/logout', (req, res) => {
 
 // returns array of all user objects, except passwords
 router.get('/all', (req, res) => {
+  console.log(req.user);
   if (req.isAuthenticated() && req.user.is_admin && req.user.is_active) {
     Auditor.find({}, {password: 0})
       .then((results) => {

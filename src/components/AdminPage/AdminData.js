@@ -11,9 +11,9 @@ const mapStateToProps = state => ({
 class AdminData extends Component {
   constructor(props) {
     super(props);
-    state({
-      deactivate: false, 
-    })
+    // state({
+    //   deactivate: false, 
+    // })
   }
     componentDidMount() {
     this.props.dispatch({
@@ -40,20 +40,20 @@ class AdminData extends Component {
                 <tbody>
                     <tr>
                         <th>User Name</th>
-                        <th>Deactivate</th>
-                        <th>Password</th>
+                        <th>Is Admin</th>
+                        <th>Is Active</th>
+                        <th>ID</th>
                     </tr>
-                    <tr>
-                        {this.props.user.allUsers.map((user, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{user.username}</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            );
-                        })}
-                    </tr>
+                    {this.props.user.allUsers.map((user, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{user.username}</td>
+                                <td>{user.is_admin.toString()}</td>
+                                <td>{user.is_active.toString()}</td>
+                                <td>{user._id.toString()}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>
