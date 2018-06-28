@@ -1,4 +1,5 @@
 const expect = require('chai').expect
+
  
 
 describe('checkCountriesIP', () => {
@@ -538,8 +539,8 @@ describe('checkCountriesIP', () => {
 
 
 
-    describe ('check Australia', () => {
-        describe ('edge cases for Australia', () => {
+    describe ('check Russia', () => {
+        describe ('edge cases for Russia', () => {
             it('should return true if country IP address begins with 37. and IP address ends with .3', () => {
                 expect(checkBlacklistCountries('37.9.98.3')).to.be.true;
             });
@@ -566,7 +567,7 @@ describe('checkCountriesIP', () => {
             });
         });
             
-        describe ('normal cases for Australia', () => {
+        describe ('normal cases for Russia', () => {
             it('should return true if country IP address begins with 31. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('31.130.95.255')).to.be.true;
             });
@@ -675,7 +676,138 @@ describe('checkCountriesIP', () => {
         });
     });
 
-
-
+    describe ('check Pakistan', () => {
+        describe ('normal cases for Pakistan', () => {
+            it('should return true if country IP address begins with 14. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('14.1.107.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 27. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('27.255.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 36. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('36.255.35.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 39. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('39.63.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 42. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('42.201.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 45. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('45.64.183.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 45. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('45.62.40.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 31. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('31.6.58.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 223. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('223.29.239.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 221. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('221.132.119.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 221. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('221.120.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 218. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('218.100.85.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 210. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('210.56.31.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 210. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('210.2.191.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 209. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('209.150.159.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 208. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('208.240.139.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 203. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('203.215.191.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 203. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('203.135.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 203. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('203.81.239.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 203. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('203.124.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 203. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('203.99.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.166.175.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.163.127.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 37. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('37.23.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.142.191.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.141.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.125.159.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.69.15.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.63.223.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.59.95.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('202.5.159.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 196. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('196.194.191.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 196. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('196.195.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 196. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('196.194.191.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 182. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('182.191.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 182. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('182.255.51.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 175. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('175.111.15.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 175. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('175.107.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 139. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('139.190.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 119. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('119.160.127.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 117. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('117.102.63.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 116. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('116.71.255.255')).to.be.true;
+            });
+            it('should return true if country IP address begins with 115. and IP address ends with .255', () => {
+                expect(checkBlacklistCountries('115.186.191.255')).to.be.true;
+            });
+        });
+    });
 
 });
