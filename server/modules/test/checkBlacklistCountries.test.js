@@ -1,4 +1,6 @@
 const expect = require('chai').expect
+const checkBlacklistCountries = require('../checkBlacklistCountries');
+
 
  
 
@@ -145,7 +147,7 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 27. and IP address ends with .7', () => {
                 expect(checkBlacklistCountries('27.107.255.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 59. and IP address ends with .191', () => {
+            it('should return true if country IP address begins with 59. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('59.99.255.255')).to.be.true;
             });
             it('should return true if country IP address begins with 42. and IP address ends with .255', () => {
