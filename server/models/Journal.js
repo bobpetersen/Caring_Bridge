@@ -7,6 +7,6 @@ const JournalSchema = new Schema({
   createdAt: { type: Date },
   siteId: { type: Number },
   userId: { type: Number },
-});
+}, { collection: 'journal' });
 
 module.exports = mongoose.model('Journal', JournalSchema);
