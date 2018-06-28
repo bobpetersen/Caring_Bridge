@@ -18,3 +18,11 @@ body {
     justify-items: center;
     align-items: start;
 }
+
+#thumbsUp {
+    grid-column: 2/3;
+    grid-row:1/2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  cover;
+}
