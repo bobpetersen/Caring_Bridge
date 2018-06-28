@@ -7,8 +7,26 @@
 
 }
 
+#approve {
+    grid-column: 1/2;
+    grid-row:1/2;
+    padding-top: 23%;
+    align-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
 body {
     font-family: 'acherus_grotesqueregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#deny {
+    grid-column: 5/6;
+    grid-row:1/2;
+    padding-top: 23%;
+    align-content: center;
+    align-items: center;
+    font-size: 2em;
 }
 
 .Grid {
@@ -19,10 +37,16 @@ body {
     align-items: start;
 }
 
+#thumbsDown {
+    grid-column: 4/5;
+    grid-row:1/2;
+    align-content: center;
+    align-items: center;
+}
+
 #thumbsUp {
     grid-column: 2/3;
     grid-row:1/2;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:  cover;
+    align-content: center;
+    align-items: center;
 }

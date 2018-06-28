@@ -21,11 +21,9 @@ import ApprovalView from './components/ApprovalPage/ApprovalView';
 
 const App = () => (
   <div>
-    <Header title="Project Base" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
-        
         <Route
           path="/admin"
           component={AdminView}

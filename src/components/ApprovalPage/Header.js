@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Nav from '../../components/Nav/Nav';
-
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
@@ -26,8 +24,11 @@ class ApprovalHeader extends Component {
 
         if (this.props.user.userName) {
             content = (
-                <div>
+                <div className="Grid">
+                    <p id="approve">Safe</p>
                     <img id="thumbsUp" src="icons/grey-thumb-up.png"></img>
+                    <img id="thumbsDown" src="icons/grey-thumb-down.png"></img>
+                    <p id="deny">Spam</p>
                 </div>
             );
         }
