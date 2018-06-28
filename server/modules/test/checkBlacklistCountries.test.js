@@ -153,7 +153,7 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 14. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('14.99.255.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 27. and IP address ends with .7', () => {
+            it('should return true if country IP address begins with 27. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('27.107.255.255')).to.be.true;
             });
             it('should return true if country IP address begins with 59. and IP address ends with .255', () => {
@@ -380,10 +380,10 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('202.169.63.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 202. and IP address ends with .99', () => {
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('202.77.127.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 202. and IP address ends with .103', () => {
+            it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('202.75.111.255')).to.be.true;
             });
             it('should return true if country IP address begins with 202. and IP address ends with .255', () => {
@@ -436,7 +436,7 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 1. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('1.159.255.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 1. and IP address ends with .7', () => {
+            it('should return true if country IP address begins with 1. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('1.179.127.255')).to.be.true;
             });
             it('should return true if country IP address begins with 13. and IP address ends with .255', () => {
@@ -588,7 +588,7 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 5. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('5.3.255.255')).to.be.true;
             });
-            it('should return true if country IP address begins with 1. and IP address ends with .7', () => {
+            it('should return true if country IP address begins with 1. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('5.19.255.255')).to.be.true;
             });
             it('should return true if country IP address begins with 13. and IP address ends with .255', () => {
