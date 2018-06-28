@@ -10,7 +10,7 @@ async function siteFilter(site) {
   //   result.status = true;
   //   result.reason.push('Contains URL in My Story');
   // }
-  let queryResults = await Journal.find({'siteId':945702}).sort({'createdAt':1}).limit(1);
+  let queryResults = await Journal.find({'siteId':site._id}).sort({'createdAt':1}).limit(1);
   console.log(queryResults);
   let URLResult = await checkURL(queryResults[0].body);
   console.log(queryResults[0].body);
