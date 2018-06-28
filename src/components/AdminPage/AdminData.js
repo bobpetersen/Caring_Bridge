@@ -11,9 +11,9 @@ const mapStateToProps = state => ({
 class AdminData extends Component {
   constructor(props) {
     super(props);
-    state({
+    this.state = {
       deactivate: false, 
-    })
+    }
   }
     componentDidMount() {
     this.props.dispatch({
