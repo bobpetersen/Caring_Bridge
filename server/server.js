@@ -17,8 +17,6 @@ const siteRouter = require('./routes/site.router');
 const profileRouter = require('./routes/profile.router');
 const scanRouter = require('./routes/scan.router');
 
-const siteFilter = require('./modules/filter/siteFilter');
-
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
