@@ -1,8 +1,8 @@
 const expect = require('chai').expect
- 
+const checkURL = require('../filter/checkURL');
 
-describe('checkURLInMyStory'), () => {
-    describe ('base cases for .com'), () => {
+describe('checkURLInMyStory', () => {
+    describe ('base cases for .com', () => {
         it('should return true when https://www.tires.com in story field', () => {
             expect(checkURL('https://www.tires.com')).to.be.true
         })
@@ -33,8 +33,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when com in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. com is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .net'), () => {
+    })
+    describe ('base cases for .net', () => {
         it('should return true when https://www.tires.net in story field', () => {
             expect(checkURL('https://www.tires.net')).to.be.true
         })
@@ -65,8 +65,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when net in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. net is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .de'), () => {
+    })
+    describe ('base cases for .de', () => {
         it('should return true when https://www.tires.de in story field', () => {
             expect(checkURL('https://www.tires.de')).to.be.true
         })
@@ -97,8 +97,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when de in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. de is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .cn'), () => {
+    })
+    describe ('base cases for .cn', () => {
         it('should return true when https://www.tires.cn in story field', () => {
             expect(checkURL('https://www.tires.cn')).to.be.true
         })
@@ -129,8 +129,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when cn in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. cn is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .uk'), () => {
+    })
+    describe ('base cases for .uk', () => {
         it('should return true when https://www.tires.uk in story field', () => {
             expect(checkURL('https://www.tires.uk')).to.be.true
         })
@@ -161,8 +161,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when uk in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. uk is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .in'), () => {
+    })
+    describe ('base cases for .in', () => {
         it('should return true when https://www.tires.in in story field', () => {
             expect(checkURL('https://www.tires.in')).to.be.true
         })
@@ -193,8 +193,8 @@ describe('checkURLInMyStory'), () => {
         it('should return false when in in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. in is a great site that I love.')).to.be.false
         })
-    }
-    describe ('base cases for .org'), () => {
+    })
+    describe ('base cases for .org', () => {
         it('should return false when https://www.tires.org in story field', () => {
             expect(checkURL('https://www.tires.org')).to.be.false
         })
@@ -225,11 +225,11 @@ describe('checkURLInMyStory'), () => {
         it('should return false when org in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. org is a great site that I love.')).to.be.false
         })
-    }
-}
+    })
+})
 
-describe('checkURLInMyStory'), () => {
-    describe ('whack after .com'), () => {
+describe('checkURLInMyStory', () => {
+    describe ('whack after .com', () => {
         it('should return true when https://www.tires.com/greatTires in story field', () => {
             expect(checkURL('https://www.tires.com/greatTires')).to.be.true
         })
@@ -248,8 +248,8 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.com/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.com/greatTires is a great site that I love.')).to.be.true
         })
-    }
-    describe ('whack after .net'), () => {
+    })
+    describe ('whack after .net', () => {
         it('should return true when https://www.tires.net/greatTires in story field', () => {
             expect(checkURL('https://www.tires.net/greatTires')).to.be.true
         })
@@ -268,8 +268,8 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.net/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.net/greatTires is a great site that I love.')).to.be.true
         })
-    }
-    describe ('whack after .de'), () => {
+    })
+    describe ('whack after .de', () => {
         it('should return true when https://www.tires.de/greatTires in story field', () => {
             expect(checkURL('https://www.tires.de/greatTires')).to.be.true
         })
@@ -288,8 +288,8 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.de/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.de/greatTires is a great site that I love.')).to.be.true
         })
-    }
-    describe ('whack after .cn'), () => {
+    })
+    describe ('whack after .cn', () => {
         it('should return true when https://www.tires.cn/greatTires in story field', () => {
             expect(checkURL('https://www.tires.cn/greatTires')).to.be.true
         })
@@ -308,8 +308,8 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.cn/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.cn/greatTires is a great site that I love.')).to.be.true
         })
-    }
-    describe ('whack after .uk'), () => {
+    })
+    describe ('whack after .uk', () => {
         it('should return true when https://www.tires.uk/greatTires in story field', () => {
             expect(checkURL('https://www.tires.uk/greatTires')).to.be.true
         })
@@ -328,8 +328,8 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.uk/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.uk/greatTires is a great site that I love.')).to.be.true
         })
-    }
-    describe ('whack after .in'), () => {
+    })
+    describe ('whack after .in', () => {
         it('should return true when https://www.tires.in/greatTires in story field', () => {
             expect(checkURL('https://www.tires.in/greatTires')).to.be.true
         })
@@ -348,11 +348,11 @@ describe('checkURLInMyStory'), () => {
         it('should return true when tires.in/greatTires in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. tires.in/greatTires is a great site that I love.')).to.be.true
         })
-    }
-}
+    })
+})
 
-describe('checkURLInMyStory'), () => {
-    describe('Edge Cases'), () => {
+describe('checkURLInMyStory', () => {
+    describe('Edge Cases', () => {
         it('should return false when www in story field', () => {
             expect(checkURL('www')).to.be.false
         })
@@ -377,5 +377,5 @@ describe('checkURLInMyStory'), () => {
         it('should return false when 11111.com in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. 11111.com is a great site that I love.')).to.be.false
         })
-    }
-}
+    })
+})
