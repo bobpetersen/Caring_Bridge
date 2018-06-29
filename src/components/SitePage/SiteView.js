@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
+import SiteData from './SiteData';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
@@ -19,7 +20,12 @@ class SiteView extends Component {
     });
   }
 
- 
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
+  }
+
   render() {
     let content = null;
 
@@ -27,7 +33,7 @@ class SiteView extends Component {
       content = (
         <div>
           <p>Site View</p>
-          {/* insert siteData here ex. <SiteView/> */}
+          <SiteData />
         </div>
       );
     }
