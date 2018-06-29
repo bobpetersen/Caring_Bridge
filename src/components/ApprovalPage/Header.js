@@ -38,11 +38,16 @@ class ApprovalHeader extends Component {
             content = (
                 <form className="GridHeader">
                     <p id="approve">Safe</p>
-                    <img id="thumbsUp" src="icons/grey-thumb-up.png"></img>
-                    <div className="ContainerDown">
-                        <input id="thumbsDown" type="image" src="icons/grey-thumb-down.png" alt="Submit" />
+                    <div className="ContainerUp">
+                        <input type="image" src="icons/grey-thumb-up.png" alt="Submit" />
                         <div className="Overlay">
-                            <input id="thumbsDown" type="image" src="icons/purple-thumb-down.png" alt="Submit" />
+                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" />
+                        </div>
+                    </div>
+                    <div className="ContainerDown">
+                        <input type="image" src="icons/grey-thumb-down.png" alt="Submit" />
+                        <div className="Overlay">
+                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" />
                         </div>
                     </div>
                     <p id="deny">Spam</p>
