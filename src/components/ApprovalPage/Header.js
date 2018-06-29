@@ -11,6 +11,13 @@ const mapStateToProps = state => ({
 });
 
 class ApprovalHeader extends Component {
+    constructor() {
+        super();
+        this.state = {
+            wasClicked: false,
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({
             type: USER_ACTIONS.FETCH_USER
@@ -18,18 +25,28 @@ class ApprovalHeader extends Component {
         });
     }
 
+    pictureClicked() {
+        this.setState({
+            wasClicked: !this.state.wasClicked
+        });
+    }
 
     render() {
         let content = null;
 
         if (this.props.user.userName) {
             content = (
-                <div className="GridHeader">
+                <form className="GridHeader">
                     <p id="approve">Safe</p>
                     <img id="thumbsUp" src="icons/grey-thumb-up.png"></img>
-                    <img id="thumbsDown" src="icons/grey-thumb-down.png"></img>
+                    <div className="ContainerDown">
+                        <input id="thumbsDown" type="image" src="icons/grey-thumb-down.png" alt="Submit" />
+                        <div className="Overlay">
+                            <input id="thumbsDown" type="image" src="icons/purple-thumb-down.png" alt="Submit" />
+                        </div>
+                    </div>
                     <p id="deny">Spam</p>
-                </div>
+                </form>
             );
         }
 

@@ -20,6 +20,19 @@ body {
     font-family: 'acherus_grotesqueregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+.ContainerDown {
+    position: relative;
+    width: 100%;
+    grid-column: 4/5;
+    grid-row:1/2;
+    align-content: center;
+    align-items: center;
+  }
+
+.ContainerDown:hover .Overlay{
+    opacity: 1;
+}
+
 #deny {
     grid-column: 5/6;
     grid-row:1/2;
@@ -45,6 +58,18 @@ body {
     align-items: start;
 }
 
+.Overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+  }
+
 #spamSiteView {
     grid-column: 1/6;
     grid-row:1/6;
@@ -52,12 +77,12 @@ body {
     width: 100%;
 }
 
-#thumbsDown {
+/* #thumbsDown {
     grid-column: 4/5;
     grid-row:1/2;
     align-content: center;
     align-items: center;
-}
+} */
 
 #thumbsUp {
     grid-column: 2/3;
