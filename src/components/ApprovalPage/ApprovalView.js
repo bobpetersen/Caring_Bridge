@@ -27,15 +27,15 @@ class ProfileView extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
-            <Header />
-            <p>Profile View</p>
+        <div className="Grid">
+            <iframe id="spamSiteView" src="https://www.caringbridge.org/"></iframe>
         </div>
       );
     }
 
     return (
       <div>
+        <Header />
         { content }
       </div>
     );

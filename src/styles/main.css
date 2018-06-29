@@ -37,6 +37,21 @@ body {
     align-items: start;
 }
 
+.GridHeader {
+    display: grid;
+    grid-template-columns:  repeat(5, 2fr);
+    grid-template-rows: 1;
+    justify-items: center;
+    align-items: start;
+}
+
+#spamSiteView {
+    grid-column: 1/6;
+    grid-row:1/6;
+    height: 600pt;
+    width: 100%;
+}
+
 #thumbsDown {
     grid-column: 4/5;
     grid-row:1/2;

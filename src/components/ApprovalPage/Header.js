@@ -24,7 +24,7 @@ class ApprovalHeader extends Component {
 
         if (this.props.user.userName) {
             content = (
-                <div className="Grid">
+                <div className="GridHeader">
                     <p id="approve">Safe</p>
                     <img id="thumbsUp" src="icons/grey-thumb-up.png"></img>
                     <img id="thumbsDown" src="icons/grey-thumb-down.png"></img>
