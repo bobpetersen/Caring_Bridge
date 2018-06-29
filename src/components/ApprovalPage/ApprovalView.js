@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
-import SiteData from './SiteData';
+
+import Header from './Header';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
 
 
+
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class SiteView extends Component {
+class ProfileView extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
-      // fetch site action data
+      // fetch profile action data
     });
   }
 
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
-    }
-  }
-
+ 
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <p>Site View</p>
-          <SiteData />
+        <div className="Grid">
+            <iframe id="spamSiteView" src="https://www.caringbridge.org/"></iframe>
         </div>
       );
     }
 
     return (
       <div>
-        <Nav />
+        <Header />
         { content }
       </div>
     );
@@ -48,5 +43,4 @@ class SiteView extends Component {
 }
 
 
-export default connect(mapStateToProps)(SiteView);
-
+export default connect(mapStateToProps)(ProfileView);
