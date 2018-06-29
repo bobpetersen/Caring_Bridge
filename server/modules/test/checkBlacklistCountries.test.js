@@ -2,7 +2,7 @@ const expect = require('chai').expect
 const checkBlacklistCountries = require('../checkBlacklistCountries');
 
 
- 
+ // edge cases ip address with change to a single digit
 
 describe('checkCountriesIP', () => {
     describe ('check China', () => {
@@ -24,15 +24,6 @@ describe('checkCountriesIP', () => {
             });
             it('should return true if country IP address begins with 106. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('106.95.255.255')).to.be.true;
-            });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
             });
         });
             
@@ -171,15 +162,6 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 59. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('59.185.255.255')).to.be.true;
             });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
-            });
         });
         
         describe ('normal cases for India', () => {
@@ -307,15 +289,6 @@ describe('checkCountriesIP', () => {
             });
             it('should return true if country IP address begins with 210. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('210.210.191.255')).to.be.true;
-            });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
             });
         });
           
@@ -450,15 +423,6 @@ describe('checkCountriesIP', () => {
             });
             it('should return true if country IP address begins with 1. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('1.44.255.255')).to.be.true;
-            });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
             });
         });
             
@@ -603,15 +567,6 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 1. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('1.44.255.255')).to.be.true;
             });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
-            });
         });
             
         describe ('normal cases for Russia', () => {
@@ -743,15 +698,7 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 45. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('45.64.183.255')).to.be.true;
             });
-            it('should return False if country IP address has no input', () => {
-                expect(checkBlacklistCountries('')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, but text  ', () => {
-                expect(checkBlacklistCountries('textTesting')).to.be.false;
-            });
-            it('should return False if country IP address has no integer, no text, but special characters  ', () => {
-                expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
-            });
+
             it('should return true if country IP address begins with 45. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('45.62.40.255')).to.be.true;
             });
@@ -863,6 +810,18 @@ describe('checkCountriesIP', () => {
             it('should return true if country IP address begins with 115. and IP address ends with .255', () => {
                 expect(checkBlacklistCountries('115.186.191.255')).to.be.true;
             });
+        });
+    });
+
+    describe ('normal cases for Russia', () => {
+        it('should return False if country IP address has no input', () => {
+            expect(checkBlacklistCountries('')).to.be.false;
+        });
+        it('should return False if country IP address has no integer, but text  ', () => {
+            expect(checkBlacklistCountries('textTesting')).to.be.false;
+        });
+        it('should return False if country IP address has no integer, no text, but special characters  ', () => {
+            expect(checkBlacklistCountries('!@#$%^&*')).to.be.false;
         });
     });
 
