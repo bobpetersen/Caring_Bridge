@@ -21,9 +21,7 @@ const checkURL = text => {
     return true;
   }
   // if haven't found anything, return false
-  else {
-    return false;
-  }
+  return false;
 }
 
 module.exports = checkURL;

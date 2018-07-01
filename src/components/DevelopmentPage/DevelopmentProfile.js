@@ -27,10 +27,19 @@ class DevelopmentProfile extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>
-            Production Profile Form
+          <h2> Production Profile Form </h2>
             {/* input form here */}
-          </p>
+          <form>
+            <input type="text" name="siteUrl" placeholder="Site URL"/>
+            <input type="text" name="siteCreated" placeholder="Site Created"/>
+            <input type="text" name="user" placeholder="User"/>
+            <input type="text" name="userEmail" placeholder="User Email"/>
+            <input type="text" name="userCreated" placeholder="User Created"/>
+            <input type="text" name="siteIP" placeholder="Site IP"/>
+            <input type="text" name="bioUrl" placeholder="Bio URL"/>
+            <input type="text" name="altSiteUrl" placeholder="Alt Site URL"/>
+            <input type="submit" value="Submit" />
+          </form>
         </div>
       );
     }

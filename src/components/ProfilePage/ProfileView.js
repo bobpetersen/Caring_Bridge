@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import ProfileData from './ProfileData'
 import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -28,7 +28,7 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-          {/* insert profileData here ex. <ProfileView/> */}
+        < ProfileData / >
         </div>
       );
     }
