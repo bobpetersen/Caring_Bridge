@@ -11,13 +11,6 @@ const mapStateToProps = state => ({
 });
 
 class ApprovalHeader extends Component {
-    constructor() {
-        super();
-        this.state = {
-            wasClicked: false,
-        };
-    }
-
     componentDidMount() {
         this.props.dispatch({
             type: USER_ACTIONS.FETCH_USER
@@ -25,10 +18,14 @@ class ApprovalHeader extends Component {
         });
     }
 
-    pictureClicked() {
-        this.setState({
-            wasClicked: !this.state.wasClicked
-        });
+    handleNotSpam = (event) => {
+        event.preventDefault();
+        this.props.history.push('/site');
+    }
+
+    handleSpam = (event) => {
+        event.preventDefault();
+        this.props.history.push('/site');
     }
 
     render() {
@@ -41,13 +38,13 @@ class ApprovalHeader extends Component {
                     <div className="ContainerUp">
                         <input type="image" src="icons/grey-thumb-up.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" />
+                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" onClick={this.handleNotSpam}/>
                         </div>
                     </div>
                     <div className="ContainerDown">
                         <input type="image" src="icons/grey-thumb-down.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" />
+                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" onClick={this.handleSpam}/>
                         </div>
                     </div>
                     <p id="deny">Spam</p>
