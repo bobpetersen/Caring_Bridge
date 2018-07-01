@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Profile = require('../models/Profile');
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 // returns an array of profile objects
 router.get('/', rejectUnauthenticated, (req, res) => {
