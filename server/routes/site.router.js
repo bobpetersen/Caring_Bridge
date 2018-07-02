@@ -1,20 +1,44 @@
 const router = require('express').Router();
+const Site = require('../models/Site');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // returns an array of site objects
-router.get('/', (req, res) => {
-
+router.get('/', rejectUnauthenticated, (req, res) => {
+    Site.find({ audit_data: { flaged: true } })
+        .then((results) => {
+            res.send(results);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
 });
 
 // takes in 'status' param with value 'reset', 'spam', or 'notSpam'
 // takes in body the _id of the site
-router.put('/:status', (req, res) => {
-
+router.put('/:status', rejectUnauthenticated, (req, res) => {
+    let statusUpdate = req.params.status;
+    Site.findByIdAndUpdate(req.body._id, { audit_data: { result: statusUpdate } })
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
 });
 
 // for development only
 // requires body: site object
-router.post('/', (req, res) => {
-
+router.post('/', rejectUnauthenticated, (req, res) => {
+    Site.create(req.body)
+        .then(() => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
 });
 
 module.exports = router; 
