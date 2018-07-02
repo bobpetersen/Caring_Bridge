@@ -3,21 +3,22 @@ const countries = require('./countries');
 
 require('dotenv').config();
 
-function checkBlacklistCountries(ip) {
+async function checkBlacklistCountries(ip) {
   // use api to get country from IP address
-  axios.get(`http://api.ipstack.com/${ip}?access_key=${process.env.API_ACCESS_KEY}`
-  ).then(response => {
+  try {
+    let apiResponse = await axios.get(`http://api.ipstack.com/${ip}?access_key=${process.env.API_ACCESS_KEY}`);
     // if that country is on the blacklist, return true for spam
-    if (countries.includes(response.data.country_name)) {
+    console.log(apiResponse.data);
+    if (countries.includes(apiResponse.data.country_name)) {
       return true;
     }
     else {
       return false;
     }
-  }).catch(error => {
+  } catch (error) {
     console.log(error);
     return false;
-  });
+  };
 }
 
 module.exports = checkBlacklistCountries;

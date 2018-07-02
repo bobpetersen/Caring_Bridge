@@ -17,6 +17,9 @@ const siteRouter = require('./routes/site.router');
 const profileRouter = require('./routes/profile.router');
 const scanRouter = require('./routes/scan.router');
 
+// Filter function
+const runFilter = require('./modules/filter/filter');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,6 +42,8 @@ app.use(express.static('build'));
 
 // App Set //
 const PORT = process.env.PORT || 5000;
+
+runFilter();
 
 /** Listen * */
 app.listen(PORT, () => {
