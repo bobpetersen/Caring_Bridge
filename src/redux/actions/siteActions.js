@@ -1,0 +1,6 @@
+export const SITE_ACTIONS = {
+    FETCH_SITES: 'FETCH_SITES',
+    SET_SITE_STATUS: 'SET_SITE_STATUS',
+};
+
+

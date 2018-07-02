@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
+import SiteDashboardData from './SiteDashboardData';
+import ProfileDashboardData from './ProfileDashboardData';
+import ScanDashboardData from './ScanDashboardData';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
@@ -44,7 +47,10 @@ class Dashboard extends Component {
             Welcome, { this.props.user.userName }!
           </h1>
           <p>Dashboard View</p>
-           {/* insert Dashboard Data here ex. <DashboardData/> */}
+           <SiteDashboardData/>
+           <ProfileDashboardData/>
+           <ScanDashboardData/>
+           
           <button
             onClick={this.logout}
           >
