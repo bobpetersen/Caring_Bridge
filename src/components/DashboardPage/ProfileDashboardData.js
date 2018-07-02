@@ -5,9 +5,6 @@ const mapStateToProps = reduxState => ({
     profile: reduxState.profile
 });
 class ProfileDashboardData extends Component {
-    componentDidMount() {
-        this.props.dispatch({ type: PROFILE_ACTIONS.FETCH_PROFILE })
-    }
     render() {
     
     return (

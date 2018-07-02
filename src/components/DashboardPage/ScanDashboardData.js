@@ -6,9 +6,6 @@ const mapStateToProps = reduxState => ({
 });
 
 class ScanDashboardData extends Component {
-    componentDidMount() {
-        this.props.dispatch({ type: SCAN_ACTIONS.FETCH_SCAN});
-    }
     render() {
     
     return (

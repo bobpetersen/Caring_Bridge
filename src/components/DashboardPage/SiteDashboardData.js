@@ -6,10 +6,6 @@ const mapStateToProps = reduxState => ({
 
 });
 class SiteDashboardData extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: SITE_ACTIONS.FETCH_SITES})
-  }
-
   render() {
     
     return (
