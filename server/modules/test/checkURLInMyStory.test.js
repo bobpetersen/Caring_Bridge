@@ -5,8 +5,6 @@ describe('checkURLInMyStory', () => {
     describe ('base cases for .com', () => {
         it('should return true when https://www.tires.com in story field', () => {
             expect(checkURL('https://www.tires.com')).to.be.true;
-        });
-        it('should return true when https://www.tires.com in story field', () => {
             expect(checkURL('Hey here is some text that I have to write in the story about the site that I am trying to make up. https://www.tires.com is a great site that I love.')).to.be.true;
         });
         it('should return true when www.tires.com in story field', () => {
