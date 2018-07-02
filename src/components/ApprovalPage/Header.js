@@ -18,18 +18,37 @@ class ApprovalHeader extends Component {
         });
     }
 
+    handleNotSpam = (event) => {
+        event.preventDefault();
+        this.props.history.goBack();
+    }
+
+    handleSpam = (event) => {
+        event.preventDefault();
+        this.props.history.goBack();
+    }
 
     render() {
         let content = null;
 
         if (this.props.user.userName) {
             content = (
-                <div className="GridHeader">
+                <form className="GridHeader">
                     <p id="approve">Safe</p>
-                    <img id="thumbsUp" src="icons/grey-thumb-up.png"></img>
-                    <img id="thumbsDown" src="icons/grey-thumb-down.png"></img>
+                    <div className="ContainerUp">
+                        <input type="image" src="icons/grey-thumb-up.png" alt="Submit" />
+                        <div className="Overlay">
+                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" onClick={this.handleNotSpam}/>
+                        </div>
+                    </div>
+                    <div className="ContainerDown">
+                        <input type="image" src="icons/grey-thumb-down.png" alt="Submit" />
+                        <div className="Overlay">
+                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" onClick={this.handleSpam}/>
+                        </div>
+                    </div>
                     <p id="deny">Spam</p>
-                </div>
+                </form>
             );
         }
 
