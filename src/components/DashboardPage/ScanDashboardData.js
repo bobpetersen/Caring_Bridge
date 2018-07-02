@@ -15,6 +15,7 @@ class ScanDashboardData extends Component {
       <div>
           Sites Scanned : {this.props.scanInfo.length}
           <br />
+          {/* need to import variable name for lastscan  */}
           Last Scan Run : {this.props.scanInfo.lastScan}
       </div>
     );
