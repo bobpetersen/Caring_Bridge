@@ -18,7 +18,6 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
-      // fetch dashboard action data here
     });
   }
 
