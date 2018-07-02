@@ -8,7 +8,7 @@
 
 const checkURL = text => {
   // don't flag gofundme or youcaring
-  if (/[gofundme|youcaring]/.test(text)) {
+  if (/gofundme|youcaring/.test(text) || /\.org/.test(text)) {
     return false;
   }
   // check for http in text
@@ -17,13 +17,11 @@ const checkURL = text => {
   } 
   // check for popular domain endings
   // if these strings (including the period) appear, will return true (spam)
-  else if (/[.com|.de|.cn|.net|.uk|.in]/.test(text)) {
+  else if (/\.com|\.de|\.cn|\.net|\.uk|\.in/.test(text)) {
     return true;
   }
   // if haven't found anything, return false
-  else {
-    return false;
-  }
+  return false;
 }
 
 module.exports = checkURL;

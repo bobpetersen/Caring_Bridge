@@ -17,40 +17,44 @@ import ProfileView from './components/ProfilePage/ProfileView';
 import SiteView from './components/SitePage/SiteView';
 
 import './styles/main.css';
+import ApprovalView from './components/ApprovalPage/ApprovalView';
 
 const App = () => (
   <div>
-    <Header title="Project Base" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
         <Route
-          path="/home"
-          component={LoginPage}
-        />
-          <Route
           path="/admin"
           component={AdminView}
         />
-          <Route
-          path="/profile"
-          component={ProfileView}
-        />
-          <Route
-          path="/site"
-          component={SiteView}
-        />
         <Route
-          path="/register"
-          component={RegisterPage}
+          path="/approval"
+          component={ApprovalView}
         />
         <Route
           path="/dash"
           component={DashboardView}
         />
         <Route
+          path="/home"
+          component={LoginPage}
+        />
+        <Route
+          path="/profile"
+          component={ProfileView}
+        />
+        <Route
           path="/profileform"
           component={DevelopmentProfile}
+        />
+        <Route
+          path="/register"
+          component={RegisterPage}
+        />
+        <Route
+          path="/site"
+          component={SiteView}
         />
         <Route
           path="/siteform"
