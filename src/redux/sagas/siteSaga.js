@@ -1,5 +1,6 @@
 import { takeLatest, put as dispatch } from 'redux-saga/effects';
 import { SITE_ACTIONS } from '../actions/siteActions';
+import { callSite } from '../requests/siteRequest';
 
 const host = "http://localhost:5000/";
 
