@@ -20,12 +20,12 @@ class ApprovalHeader extends Component {
 
     handleNotSpam = (event) => {
         event.preventDefault();
-        this.props.history.push('/site');
+        this.props.history.goBack();
     }
 
     handleSpam = (event) => {
         event.preventDefault();
-        this.props.history.push('/site');
+        this.props.history.goBack();
     }
 
     render() {
