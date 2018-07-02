@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class ProfileData extends Component {
-
+  constructor(props) {
+      super(props);
+      this.state = {
+        deactivate: false,
+      }
+    }
+  
   render() {
     
     return (
@@ -49,4 +60,4 @@ class ProfileData extends Component {
   }
 }
 
-export default ProfileData;
+export default connect(mapStateToProps)(ProfileData);

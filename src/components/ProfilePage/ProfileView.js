@@ -20,6 +20,19 @@ class ProfileView extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'FETCH_PROFILES'
+    });
+  }
+
+  handleClickForDeactivate = () => {
+    console.log('Deactivate button click ');
+    this.setState({
+      deactivate: true,
+    })
+  }
+
  
   render() {
     let content = null;
@@ -28,7 +41,7 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-        < ProfileData / >
+        <ProfileData />
         </div>
       );
     }
