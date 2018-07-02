@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const checkBlacklistCountries = require('../checkBlacklistCountries');
+const checkBlacklistCountries = require('../filter/checkBlacklistCountries');
 
 
  // edge cases ip address with change to a single digit

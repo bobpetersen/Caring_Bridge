@@ -20,4 +20,5 @@ function checkBlacklistCountries(ip) {
   });
 }
 
+console.log(checkBlacklistCountries('5.19.255.255'));
 module.exports = checkBlacklistCountries;
