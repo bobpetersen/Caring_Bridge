@@ -58,7 +58,6 @@ class Dashboard extends Component {
         <Nav />
         { content }
       </div>
-      
     );
   }
 }
