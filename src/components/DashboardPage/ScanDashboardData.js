@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SCAN_ACTIONS } from '../../redux/actions/scanActions';
 
 const mapStateToProps = reduxState => ({
-    scanReducer:reduxState.scanReducer
+    scanInfo: reduxState.scanInfo
 });
 class ScanDashboardData extends Component {
     componentDidMount() {
@@ -12,10 +12,11 @@ class ScanDashboardData extends Component {
     
     return (
       <div>
-          Sites Scanned : {this.props.scanReducer.length}
+          {/* site router not yet defined, set default object property as, 'siteScan' until it's declared  */}
+          Sites Scanned : {this.props.scanInfo.siteScan}
           <br />
-          {/* need to import variable name for lastscan  */}
-          Last Scan Run : {this.props.scanReducer.lastScan}
+          {/* site router not yet defined, set default object property as 'lastScan' until it's declared  */}
+          Last Scan Run : {this.props.scanInfo.lastScan}
       </div>
     );
   }
