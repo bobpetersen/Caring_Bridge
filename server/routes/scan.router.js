@@ -1,6 +1,7 @@
 const router = require('express').Router();
+const Scan = require('../models/Scan');
 
-// returns objects with lastScannedDate (formatted string) sitesScanned (number) 
+// returns objects with lastScannedDate (date) sitesScanned (number) 
 // just returns most recent scan
 router.get('/',(req, res) => {
   Scan.find({}).sort({scanTime: -1}).limit(1)
