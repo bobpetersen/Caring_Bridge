@@ -18,14 +18,36 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // takes in body the _id of the site
 router.put('/:status', rejectUnauthenticated, (req, res) => {
     let statusUpdate = req.params.status;
-    Site.findByIdAndUpdate(req.body._id, { audit_data: { result: statusUpdate } })
-        .then(() => {
-            res.sendStatus(200);
+    if (statusUpdate === 'spam') {
+        Site.findByIdAndUpdate(req.body._id, {
+            isDeleted: true,
+            audit_data: {
+                result: statusUpdate
+            }
         })
-        .catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
+    }
+    else if (statusUpdate === 'safe') {
+        Site.findByIdAndUpdate(req.body._id, {
+            audit_data: {
+                result: statusUpdate
+            }
+        })
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
+    }
+
 });
 
 // for development only

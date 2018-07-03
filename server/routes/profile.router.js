@@ -18,27 +18,49 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     let userID = req.params.id;
     Profile.findById(userID)
-    .then((result) => {
-        res.send(result.bio);
-    })
-    .catch((error) => {
-        console.log(error);
-        res.sendStatus(500);
-    });
+        .then((result) => {
+            res.send(result.bio);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
 });
 
 // takes in 'status' param with value 'reset', 'spam', or 'notSpam'
 // takes in body the _id of the profile
 router.put('/:status', rejectUnauthenticated, (req, res) => {
     let statusUpdate = req.params.status;
-    Profile.findByIdAndUpdate(req.body._id, { audit_data: { result: statusUpdate } })
-        .then(() => {
-            res.sendStatus(200);
+    if (statusUpdate === 'spam') {
+        Profile.findByIdAndUpdate(req.body._id, {
+            isDeleted: true,
+            audit_data: {
+                result: statusUpdate
+            }
         })
-        .catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
+    }
+    else if (statusUpdate === 'safe') {
+        Profile.findByIdAndUpdate(req.body._id, {
+            audit_data: {
+                result: statusUpdate
+            }
+        })
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
+    }
+
 });
 //FOR DEVELOPMENT ONLY
 // requires profile object
