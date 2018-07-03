@@ -36,7 +36,8 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
     else if (statusUpdate === 'safe') {
         Site.findByIdAndUpdate(req.body.id, {
             audit_data: {
-                result: statusUpdate
+                result: statusUpdate,
+                flagged: false,
             }
         })
             .then(() => {
