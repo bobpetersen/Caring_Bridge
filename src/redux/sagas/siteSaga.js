@@ -20,9 +20,8 @@ function* getSites() {
 // set status of site
 // include action.payload with 'reset', 'spam', or 'notSpam'
 function* setSiteStatus(action) {
-  const { id } = action;
   try {
-    const setSite = yield callSetSite(id);
+    const setSite = yield callSetSite(action);
     yield put({
       type: SITE_ACTIONS.SET_SITE_STATUS,
       payload: setSite,

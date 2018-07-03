@@ -13,11 +13,11 @@ export function callSite() {
     });
 }
 
-export function callSetSite(id) {
+export function callSetSite(action) {
   const body = {
-    reset: id.payload,
-    spam: id.payload,
-    notSpam: id.payload
+    reset: action.payload,
+    spam: action.payload,
+    notSpam: action.payload
   };
   const config = {
     headers: { "Content-Type": "application/json" },
