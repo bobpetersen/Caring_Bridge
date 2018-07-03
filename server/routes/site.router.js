@@ -14,12 +14,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         });
 });
 
-// takes in 'status' param with value 'reset', 'spam', or 'notSpam'
-// takes in body the _id of the site
+// takes in 'status' param with value 'spam', or 'safe'
+// takes in body {id: site id}
 router.put('/:status', rejectUnauthenticated, (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
-        Site.findByIdAndUpdate(req.body._id, {
+        Site.findByIdAndUpdate(req.body.id, {
             isDeleted: true,
             audit_data: {
                 result: statusUpdate
@@ -34,7 +34,7 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
             });
     }
     else if (statusUpdate === 'safe') {
-        Site.findByIdAndUpdate(req.body._id, {
+        Site.findByIdAndUpdate(req.body.id, {
             audit_data: {
                 result: statusUpdate
             }

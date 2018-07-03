@@ -27,12 +27,12 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         });
 });
 
-// takes in 'status' param with value 'reset', 'spam', or 'notSpam'
-// takes in body the _id of the profile
+// takes in 'status' param with value 'spam', or 'safe'
+// takes in body of {id: profile id}
 router.put('/:status', rejectUnauthenticated, (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
-        Profile.findByIdAndUpdate(req.body._id, {
+        Profile.findByIdAndUpdate(req.body.id, {
             isDeleted: true,
             audit_data: {
                 result: statusUpdate
@@ -47,7 +47,7 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
             });
     }
     else if (statusUpdate === 'safe') {
-        Profile.findByIdAndUpdate(req.body._id, {
+        Profile.findByIdAndUpdate(req.body.id, {
             audit_data: {
                 result: statusUpdate
             }
