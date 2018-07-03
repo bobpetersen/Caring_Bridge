@@ -6,8 +6,20 @@ const mapStateToProps = state => ({
 });
 
 class ProfileData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markSafe: false,
+    }
+  }
 
-  
+  handleClickForMarkSafe = () => {
+    console.log('Mark Safe button clicked');
+    this.setState({
+      markSafe: true,
+    });
+  }
+
   render() {
     
     return (

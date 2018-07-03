@@ -9,8 +9,9 @@ class SiteData extends Component {
 
   handleClickForDeactivate = () => {
     console.log('Deactivate button click '); 
-    this.setState({deactivate: true,       
-    }) 
+    this.setState({
+      deactivate: true,       
+    });
   }
 // Site data
   render() {
