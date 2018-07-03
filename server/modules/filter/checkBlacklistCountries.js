@@ -8,7 +8,6 @@ async function checkBlacklistCountries(ip) {
   try {
     let apiResponse = await axios.get(`http://api.ipstack.com/${ip}?access_key=${process.env.API_ACCESS_KEY}`);
     // if that country is on the blacklist, return true for spam
-    console.log(apiResponse.data.country_name)
     if (countries.includes(apiResponse.data.country_name)) {
       return true;
     }
