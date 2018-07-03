@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { PROFILE_ACTIONS } from '../../redux/actions/profileActions';
 
 const mapStateToProps = reduxState => ({
-    reduxState
+    profileReducer: reduxState.profileReducer
 });
 class ProfileDashboardData extends Component {
     componentDidMount() {
@@ -13,7 +13,7 @@ class ProfileDashboardData extends Component {
     
     return (
       <div>
-          Potential Spam Profiles : {this.props.reduxState.profile}
+          Potential Spam Profiles : {this.props.profileReducer.length}
       </div>
     );
   }
