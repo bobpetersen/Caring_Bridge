@@ -1,8 +1,6 @@
-import { takeLatest, put as dispatch } from 'redux-saga/effects';
+import { takeEvery, put as dispatch } from 'redux-saga/effects';
 import { SITE_ACTIONS } from '../actions/siteActions';
-import { callSite } from '../requests/siteRequest';
-
-const host = "http://localhost:5000/";
+import { callSite, callSetSite } from '../requests/siteRequests';
 
 function* getSites() {
   try {
@@ -13,37 +11,28 @@ function* getSites() {
       });
       yield put({
         type: SITE_ACTIONS.FETCH_SITES,
-        sites,
       });
   } catch (error) {
-  console.log(`error on siteSaga: ${error}`);
+  console.log(`Error on getSites: ${error}`);
   };
 }
 
 // set status of site
 // include action.payload with 'reset', 'spam', or 'notSpam'
-function* setSiteStatus(action) {
+function* setSiteStatus(payload) {
+  const { id } = payload;
   try {
-    const setSite = yield call(axios.put, `${host}/status${action.payload.site.id}`,
-    action.payload.site, config)
-    
+    const setSite = yield callSetSite(id);
     yield put({
       type: SITE_ACTIONS.SET_SITE_STATUS,
       payload: setSite,
-
-    })
-  }
-
-
-
-yield call(axios.put, '/:status', {
-  reset: action.payload,
-  spam: action.payload,
-  notSpam: action.payload,
-})
-yield put({ 
-  type: 'FETCH_SITES' 
-});
+    });
+    yield put({
+      type: SITE_ACTIONS.FETCH_SITES,
+    });
+  } catch (error) {
+    console.log( `Error on setSiteStatus: ${error}`);
+  };
 }
 
 function* scanSaga() {
