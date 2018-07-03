@@ -6,12 +6,7 @@ const mapStateToProps = state => ({
 });
 
 class ProfileData extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        deactivate: false,
-      }
-    }
+
   
   render() {
     

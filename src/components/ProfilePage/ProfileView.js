@@ -26,14 +26,6 @@ class ProfileView extends Component {
     });
   }
 
-  handleClickForDeactivate = () => {
-    console.log('Deactivate button click ');
-    this.setState({
-      deactivate: true,
-    })
-  }
-
- 
   render() {
     let content = null;
 
