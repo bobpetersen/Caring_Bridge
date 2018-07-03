@@ -32,6 +32,7 @@ async function runFilter() {
           reason: profileResult.reason,
           result: '',
           auditedBy: '',
+          scannedAt: currentScanDate,
         }, isDeleted: '0'};
         await Profile.findByIdAndUpdate(profile._id, profileUpdated);
       }
@@ -47,6 +48,7 @@ async function runFilter() {
           reason: siteResult.reason,
           result: '',
           auditedBy: '',
+          scannedAt: currentScanDate,
         }, isDeleted: '0'};
         await Site.findByIdAndUpdate(site._id, siteUpdated);
       }
