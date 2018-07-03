@@ -4,11 +4,10 @@ const Schema = mongoose.Schema;
 //profile schema
 const ProfileSchema = new Schema({
     _id: {type: Number},
-    handle: { type: String }, 
     bio: { type: String },
-    email: {
-        address: { type: String }
-    },
+    // email: {
+    //     address: { type: String }
+    // },
     firstName: { type: String },
     lastName: { type: String },
     ip: { type: String },
