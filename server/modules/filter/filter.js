@@ -22,6 +22,7 @@ async function runFilter() {
       recentScanDate = new Date(new Date() - 864000000);
     }
     else {
+      // otherwise, the starting scan point will be the ending scan point of the previous scan
       recentScanDate = recentScan[0].scanTime;
       console.log(recentScanDate);
     }
