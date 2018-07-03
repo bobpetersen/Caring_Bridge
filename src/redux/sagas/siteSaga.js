@@ -4,6 +4,7 @@ import { callSite, callSetSite } from '../requests/siteRequests';
 
 function* getSites() {
   try {
+    // getSites axios function is located in siteRequest
     const sites = yield callSite();
       yield put({
         type: SITE_ACTIONS.SET_SITES,
@@ -21,6 +22,7 @@ function* getSites() {
 // include action.payload with 'reset', 'spam', or 'notSpam'
 function* setSiteStatus(action) {
   try {
+    // callSetSite axios function is located in siteRequest
     const setSite = yield callSetSite(action);
     yield put({
       type: SITE_ACTIONS.SET_SITE_STATUS,
