@@ -17,10 +17,14 @@ async function runFilter() {
     let recentScan = await Scan.find({}).sort({scanTime: -1}).limit(1);
     let recentScanDate = recentScan[0].scanTime;
     console.log(recentScanDate.getTime());
-    // 10 days: 864000000
+    // 10 days: 864000000 milliseconds
     let currentScanDate = new Date(recentScanDate.getTime() + 864000000);
     let profilesToScan = await Profile.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
-    console.log(profilesToScan);
+    // console.log(profilesToScan);
+    for (profile of profilesToScan) {
+      let profileResult = await profileFilter(profile);
+      console.log(profileResult, profile.ip);
+    }
     // await Scan.create([{ scanTime: new Date("2010-07-02T00:00:00Z"), sitesScanned: 12 }]);
   } catch (error) {
     console.log(error);
