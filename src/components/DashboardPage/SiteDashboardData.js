@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { SITE_ACTIONS } from '../../redux/actions/siteActions';
 
 const mapStateToProps = reduxState => ({
-  allSites: reduxState.allSites
+  reduxState
 
 });
 class SiteDashboardData extends Component {
@@ -15,7 +16,7 @@ class SiteDashboardData extends Component {
     return (
       <div>
           Potential Spam Profiles :
-          {this.props.allSites.length}
+          {/* {this.props.reduxState} */}
       </div>
     );
   }

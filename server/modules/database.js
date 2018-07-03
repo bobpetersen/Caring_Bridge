@@ -15,7 +15,7 @@ if (process.env.MONGODB_URI) {
   mongoURI = process.env.MONGODB_URI;
 } else {
   // use the local database server
-  mongoURI = 'mongodb://localhost:27017/cb_data';
+  mongoURI = 'mongodb://localhost:27017/caring_bridge';
 }
 
 mongoose.connect(mongoURI);
