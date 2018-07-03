@@ -1,4 +1,4 @@
-import { takeEvery, put as dispatch } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import { SITE_ACTIONS } from '../actions/siteActions';
 import { callSite, callSetSite } from '../requests/siteRequests';
 
@@ -19,8 +19,8 @@ function* getSites() {
 
 // set status of site
 // include action.payload with 'reset', 'spam', or 'notSpam'
-function* setSiteStatus(payload) {
-  const { id } = payload;
+function* setSiteStatus(action) {
+  const { id } = action;
   try {
     const setSite = yield callSetSite(id);
     yield put({
