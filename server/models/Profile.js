@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 //profile schema
 const ProfileSchema = new Schema({
+    _id: {type: Number},
     bio: { type: String },
     ip: { type: String },
     createdAt: { type: Date },

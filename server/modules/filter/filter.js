@@ -1,7 +1,6 @@
 // import filters
 const profileFilter = require('./profile-filter');
 const siteFilter = require('./siteFilter');
-const checkBlacklistCountries = require('./checkBlacklistCountries');
 
 // import models
 const Profile = require('../../models/Profile');
@@ -13,17 +12,19 @@ const Scan = require('../../models/Scan');
 
 // main filter function 
 async function runFilter() {
-
   try {
-    ipTest('27.106.0.0');
-    // await Scan.create([{ scanTime: new Date("1990-01-10T01:00:00Z"), sitesScanned: 12 }]);
+    // recentScan is array of the most recent scan
+    let recentScan = await Scan.find({}).sort({scanTime: -1}).limit(1);
+    let recentScanDate = recentScan[0].scanTime;
+    console.log(recentScanDate.getTime());
+    // 10 days: 864000000
+    let currentScanDate = new Date(recentScanDate.getTime() + 864000000);
+    let profilesToScan = await Profile.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
+    console.log(profilesToScan);
+    // await Scan.create([{ scanTime: new Date("2010-07-02T00:00:00Z"), sitesScanned: 12 }]);
   } catch (error) {
     console.log(error);
   }
-}
-
-async function ipTest(ip) {
-  checkBlacklistCountries(ip).then(resp => console.log(resp, 2));
 }
 
 module.exports = runFilter;
