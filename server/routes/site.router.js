@@ -20,7 +20,7 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
         Site.findByIdAndUpdate(req.body.id, {
-            isDeleted: 1,
+            isDeleted: '1',
             audit_data: {
                 result: statusUpdate
             }
