@@ -16,14 +16,21 @@ async function runFilter() {
   try {
     // recentScan is array of the most recent scan
     let recentScan = await Scan.find({}).sort({scanTime: -1}).limit(1);
-    let recentScanDate = recentScan[0].scanTime;
-    // this line needs to be changed to the following 
-    // let currentScanDate = new Date();
-    let currentScanDate = new Date(recentScanDate.getTime() + 864000000);
+    let recentScanDate;
+    if (recentScan.length === 0) {
+      // if this is the first scan ever, let the starting scan point be 10 days ago
+      recentScanDate = new Date(new Date() - 864000000);
+    }
+    else {
+      recentScanDate = recentScan[0].scanTime;
+      console.log(recentScanDate);
+    }
+    let currentScanDate = new Date();
+    console.log(currentScanDate, recentScanDate);
 
     // scan Profiles
     let profilesToScan = await Profile.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
-    // console.log(profilesToScan);
+    console.log(profilesToScan);
     for (profile of profilesToScan) {
       let profileResult = await profileFilter(profile);
       if (profileResult.status) {
