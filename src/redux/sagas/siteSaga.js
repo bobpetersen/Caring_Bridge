@@ -6,15 +6,12 @@ function* getSites() {
   try {
     // getSites axios function is located in siteRequest
     const sites = yield callSite();
-      yield put({
-        type: SITE_ACTIONS.SET_SITES,
-        payload: sites,
-      });
-      yield put({
-        type: SITE_ACTIONS.FETCH_SITES,
-      });
+    yield put({
+      type: SITE_ACTIONS.SET_SITE,
+      payload: sites,
+    });
   } catch (error) {
-  console.log(`Error on getSites: ${error}`);
+    console.log(`Error on getSites: ${error}`);
   };
 }
 
@@ -25,7 +22,7 @@ function* setSiteStatus(action) {
 }
 
 function* siteSaga() {
-  yield takeEvery(SITE_ACTIONS.FETCH_SITES, getSites);
+  yield takeEvery(SITE_ACTIONS.FETCH_SITE, getSites);
   yield takeEvery(SITE_ACTIONS.SET_SITE_STATUS, setSiteStatus);
 }
 
