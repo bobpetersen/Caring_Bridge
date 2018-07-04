@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 
 const mapStateToProps = state => ({
-  site: state.site,
+
 });
 class SiteData extends Component {
   constructor(props) {
@@ -15,15 +15,8 @@ class SiteData extends Component {
 
   componentDidMount() {
     this.props.dispatch({
-      type: 'FETCH_SITE'
+      type: FETCH_SITE.FETCH_SITES
     })
-  }
-
-  handleClickForDeactivate = () => {
-    console.log('Deactivate button click ');
-      this.setState({ 
-        deactivate: true,
-    }) 
   }
 
   render() {
