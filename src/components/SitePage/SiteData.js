@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { SITE_ACTIONS } from '../../redux/actions/siteActions';
 
 const mapStateToProps = state => ({
 
@@ -15,7 +15,7 @@ class SiteData extends Component {
 
   componentDidMount() {
     this.props.dispatch({
-      type: FETCH_SITE.FETCH_SITES
+      type: SITE_ACTIONS.FETCH_SITE
     })
   }
 
