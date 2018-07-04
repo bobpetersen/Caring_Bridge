@@ -5,6 +5,7 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
+const cron = require('node-cron');
 
 // start up the mongo database
 require('./modules/database');
@@ -43,6 +44,8 @@ app.use(express.static('build'));
 // App Set //
 const PORT = process.env.PORT || 5000;
 
+// run filter at minute 0 every hour, and when server starts up
+cron.schedule('0 * * * *', runFilter);
 runFilter();
 
 /** Listen * */
