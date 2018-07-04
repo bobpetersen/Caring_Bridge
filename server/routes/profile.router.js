@@ -38,7 +38,7 @@ router.put('/:status', (req, res) => {
                 flagged: false,
                 result: statusUpdate,
                 reason: req.body.reason,
-                auditedBy: req.body.employee,
+                auditedBy: req.body.auditedBy,
             }
         })
             .then(() => {
@@ -55,7 +55,7 @@ router.put('/:status', (req, res) => {
                 result: statusUpdate,
                 flagged: false,
                 reason: req.body.reason,
-                auditedBy: req.body.employee
+                auditedBy: req.body.auditedBy
             }
         })
             .then(() => {
