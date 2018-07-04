@@ -1,6 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects';
-import { SITE_ACTIONS } from '../actions/siteActions';
-
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 function* getSites() {
 
@@ -12,9 +10,9 @@ function* setSiteStatus() {
 
 }
 
-function* siteSaga() {
-  yield takeEvery(SITE_ACTIONS.FETCH_SITES, getSites);
-  yield takeEvery(SITE_ACTIONS.SET_SITE_STATUS, setSiteStatus);
+function* scanSaga() {
+  yield takeEvery('FETCH_SITES', getSites);
+  yield takeEvery('SET_SITE_STATUS', setSiteStatus);
 }
 
-export default siteSaga;
+export default scanSaga;

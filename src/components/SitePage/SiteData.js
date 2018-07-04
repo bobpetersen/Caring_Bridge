@@ -15,7 +15,7 @@ class SiteData extends Component {
 
   componentDidMount() {
     this.props.dispatch({
-      type: 'FETCH_SITE'
+      type: 'FETCH_SITES'
     })
   }
 
