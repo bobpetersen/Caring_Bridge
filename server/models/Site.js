@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 //site schema
 const SiteSchema = new Schema({
+    _id: {type: Number},
     description: {type: String},
     createdAt: {type: Date},
     status: {

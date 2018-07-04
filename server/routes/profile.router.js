@@ -3,8 +3,8 @@ const Profile = require('../models/Profile');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // returns an array of profile objects
-router.get('/', rejectUnauthenticated, (req, res) => {
-    Profile.find({ audit_data: { flagged: true } })
+router.get('/', (req, res) => {
+    Profile.find({ 'audit_data.flagged': true })
         .then((results) => {
             res.send(results);
         })
@@ -14,12 +14,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         });
 });
 
-//returns the bio associated with a particular user, when passed the id of that user
-router.get('/:id', rejectUnauthenticated, (req, res) => {
-    let userID = req.params.id;
-    Profile.findById(userID)
+//returns the bio associated with a particular user, when passed the id of that user as a query parameter
+router.get('/locate', (req, res) => {
+    let userID = req.query.id;
+    Profile.find({_id: userID})
         .then((result) => {
-            res.send(result.bio);
+            res.send(result);
         })
         .catch((error) => {
             console.log(error);
@@ -28,14 +28,17 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // takes in 'status' param with value 'spam', or 'safe'
-// takes in body of {id: profile id}
-router.put('/:status', rejectUnauthenticated, (req, res) => {
+// takes in body with id of profile, reason (array of reasons why flagged), and auditedBy (employee id string)
+router.put('/:status', (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
         Profile.findByIdAndUpdate(req.body.id, {
             isDeleted: '1',
             audit_data: {
-                result: statusUpdate
+                flagged: false,
+                result: statusUpdate,
+                reason: req.body.reason,
+                auditedBy: req.body.employee,
             }
         })
             .then(() => {
@@ -51,6 +54,8 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
             audit_data: {
                 result: statusUpdate,
                 flagged: false,
+                reason: req.body.reason,
+                auditedBy: req.body.employee
             }
         })
             .then(() => {
@@ -65,7 +70,7 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
 });
 //FOR DEVELOPMENT ONLY
 // requires profile object
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/', (req, res) => {
     Profile.create(req.body)
         .then(() => {
             res.sendStatus(201);
