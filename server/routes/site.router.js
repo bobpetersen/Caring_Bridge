@@ -4,7 +4,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 // returns an array of site objects
 router.get('/', rejectUnauthenticated, (req, res) => {
-    Site.find({ audit_data: { flagged: true } })
+    Site.find({ 'audit_data.flagged': true })
         .then((results) => {
             res.send(results);
         })
