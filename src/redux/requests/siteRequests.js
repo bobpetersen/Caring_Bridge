@@ -15,9 +15,7 @@ export function callSite() {
 
 export function callSetSite(action) {
   const body = {
-    reset: action.payload,
-    spam: action.payload,
-    notSpam: action.payload
+    result: action.payload
   };
   const config = {
     headers: { "Content-Type": "application/json" },
