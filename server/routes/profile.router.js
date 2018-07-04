@@ -4,7 +4,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 // returns an array of profile objects
 router.get('/', rejectUnauthenticated, (req, res) => {
-    Profile.find({ audit_data: { flagged: true } })
+    Profile.find({ 'audit_data.flagged': true })
         .then((results) => {
             res.send(results);
         })
