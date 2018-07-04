@@ -6,7 +6,26 @@ const mapStateToProps = state => ({
   site: state.site,
 });
 class SiteData extends Component {
-// Site data
+  constructor(props) {
+    super(props);
+    this.state = {
+      deactivate: false,
+    } 
+  }
+
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'FETCH_SITE'
+    })
+  }
+
+  handleClickForDeactivate = () => {
+    console.log('Deactivate button click ');
+      this.setState({ 
+        deactivate: true,
+    }) 
+  }
+
   render() {
     
     return (

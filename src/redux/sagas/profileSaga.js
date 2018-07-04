@@ -1,7 +1,18 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
+import axios from 'axios';
+
+const config = {
+  headers: { 'Content-Type': 'application/json' },
+  withCredentials: true,
+};
 
 function* getProfiles() {
-    
+  try {
+    let profiles = yield call(axios.get, '/api/profile/', config);
+    yield put({type: 'SET_PROFILES', payload: profiles.data});
+  } catch (error) {
+
+  }
 }
 
 // set status of profile
