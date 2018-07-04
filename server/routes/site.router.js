@@ -3,7 +3,7 @@ const Site = require('../models/Site');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // returns an array of site objects
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
     Site.find({ 'audit_data.flagged': true })
         .then((results) => {
             res.send(results);
@@ -15,14 +15,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 // takes in 'status' param with value 'spam', or 'safe'
-// takes in body {id: site id}
-router.put('/:status', rejectUnauthenticated, (req, res) => {
+//  takes in body with id of profile, reason (array of reasons why flagged), and auditedBy (employee id string)
+router.put('/:status', (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
         Site.findByIdAndUpdate(req.body.id, {
-            isDeleted: true,
+            isDeleted: '1',
             audit_data: {
-                result: statusUpdate
+                flagged: false,
+                reason: req.body.reason,
+                result: statusUpdate,
+                auditedBy: req.body.auditedBy,
             }
         })
             .then(() => {
@@ -36,7 +39,10 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
     else if (statusUpdate === 'safe') {
         Site.findByIdAndUpdate(req.body.id, {
             audit_data: {
-                result: statusUpdate
+                result: statusUpdate,
+                flagged: false,
+                reason: req.body.reason,
+                auditedBy: req.body.auditedBy,
             }
         })
             .then(() => {
@@ -52,7 +58,7 @@ router.put('/:status', rejectUnauthenticated, (req, res) => {
 
 // for development only
 // requires body: site object
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/', (req, res) => {
     Site.create(req.body)
         .then(() => {
             res.sendStatus(201);
