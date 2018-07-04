@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { PROFILE_ACTIONS } from '../actions/profileActions';
 
 const allProfiles = (state = [], action) => {
     //more code goes here
