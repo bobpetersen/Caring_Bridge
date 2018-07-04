@@ -6,10 +6,6 @@ const siteFilter = require('./siteFilter');
 const Profile = require('../../models/Profile');
 const Scan = require('../../models/Scan');
 const Site = require('../../models/Site');
-// const Site = require('../../models/Site');
-
-// db.getCollection('scan').insert([{scanTime: new Date("<1990-01-07T01:00:00Z>"), sitesScanned: 14}])
-
 
 // main filter function 
 async function runFilter() {
@@ -18,16 +14,14 @@ async function runFilter() {
     let recentScan = await Scan.find({}).sort({scanTime: -1}).limit(1);
     let recentScanDate;
     if (recentScan.length === 0) {
-      // if this is the first scan ever, let the starting scan point be 10 days ago
-      recentScanDate = new Date(new Date() - 864000000);
+      // if this is the first scan ever, let the starting scan point be 1 day ago
+      recentScanDate = new Date(new Date() - 86400000);
     }
     else {
       // otherwise, the starting scan point will be the ending scan point of the previous scan
       recentScanDate = recentScan[0].scanTime;
-      console.log(recentScanDate);
     }
     let currentScanDate = new Date();
-    console.log(currentScanDate, recentScanDate);
 
     // scan Profiles
     let profilesToScan = await Profile.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});

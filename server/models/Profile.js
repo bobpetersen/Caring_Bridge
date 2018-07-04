@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
     _id: {type: Number},
     bio: { type: String },
-    // email: {
-    //     address: { type: String }
-    // },
+    email: {
+        address: { type: String }
+    },
     firstName: { type: String },
     lastName: { type: String },
     ip: { type: String },
