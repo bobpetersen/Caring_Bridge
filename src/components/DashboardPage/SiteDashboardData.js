@@ -8,15 +8,14 @@ const mapStateToProps = reduxState => ({
 });
 class SiteDashboardData extends Component {
   componentDidMount() {
-    this.props.dispatch({ type: SITE_ACTIONS.FETCH_SITES})
+    this.props.dispatch({ type: SITE_ACTIONS.FETCH_SITE})
   }
 
   render() {
     
     return (
       <div>
-          Potential Spam Profiles :
-          {this.props.siteReducer.length}
+          Potential Spam Site : {this.props.siteReducer.allSites.length}
       </div>
     );
   }

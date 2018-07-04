@@ -13,7 +13,7 @@ class ProfileDashboardData extends Component {
     
     return (
       <div>
-          Potential Spam Profiles : {this.props.profileReducer.length}
+          Potential Spam Profiles : {this.props.profileReducer.allProfiles.length}
       </div>
     );
   }

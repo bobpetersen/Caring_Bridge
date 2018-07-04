@@ -3,20 +3,19 @@ import { connect } from "react-redux";
 import { SCAN_ACTIONS } from '../../redux/actions/scanActions';
 
 const mapStateToProps = reduxState => ({
-    siteReducer: reduxState.siteReducer
+    scanReducer: reduxState.scanReducer
 });
 class ScanDashboardData extends Component {
     componentDidMount() {
         this.props.dispatch({ type: SCAN_ACTIONS.FETCH_SCAN});
     }
     render() {
+
     return (
       <div>
-          {/* site router not yet defined, set default object property as, 'siteScan' until it's declared  */}
-          Sites Scanned : {this.props.siteReducer.sitesScanned}
-          <br />
-          {/* site router not yet defined, set default object property as 'lastScan' until it's declared  */}
-          Last Scan Run : {this.props.siteReducer.scanTime}
+        Site Scanned :{JSON.stringify(this.props.scanReducer.scanInfo.sitesScanned)}
+        <br />
+        Last Scan Run :{JSON.stringify(this.props.scanReducer.scanInfo.scanTime)}
       </div>
     );
   }
