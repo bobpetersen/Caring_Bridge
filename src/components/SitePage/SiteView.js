@@ -6,6 +6,7 @@ import SiteData from './SiteData';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+import SiteLastThree from './SiteLastThree';
 
 
 const mapStateToProps = state => ({
@@ -32,8 +33,8 @@ class SiteView extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>Site View</p>
           <SiteData />
+          <SiteLastThree />
         </div>
       );
     }

@@ -11,7 +11,7 @@ class SiteData extends Component {
     super(props);
     this.state = {
       deactivate: false,
-    }
+    } 
   }
 
   componentDidMount() {
@@ -22,16 +22,16 @@ class SiteData extends Component {
 
   handleClickForDeactivate = () => {
     console.log('Deactivate button click ');
-    this.setState({
-      deactivate: true,
-    })
+      this.setState({ 
+        deactivate: true,
+    }) 
   }
 
   render() {
-
+    
     return (
       <div>
-        <h2>Filter Results</h2>
+        <h2>Last Three Sites Processed</h2>
         <SiteTableBody />
       </div>
     );
