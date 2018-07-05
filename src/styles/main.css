@@ -7,6 +7,24 @@
 
 }
 
+@font-face {
+    font-family: 'learning_curvebold';
+    src: url('./headerfont/learning_curve_bold_ot_tt-webfont.woff2') format('woff2'),
+         url('./headerfont/learning_curve_bold_ot_tt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+a, a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:active{
+    text-decoration-line: underline;
+}
+
 #approve {
     grid-column: 1/2;
     grid-row:1/2;
@@ -46,6 +64,30 @@ body {
     opacity: 1;
 }
 
+.DashboardData {
+    font-size: 64px;
+}
+
+#dashProfile {
+    grid-column: 3/4;
+    grid-row:2/3;
+}
+
+#dashScanned {
+    grid-column: 2/3;
+    grid-row:4/5;
+}
+
+#dashScanRun {
+    grid-column: 3/4;
+    grid-row:4/5;
+}
+
+#dashSite {
+    grid-column: 2/3;
+    grid-row:2/3;
+}
+
 #deny {
     grid-column: 5/6;
     grid-row:1/2;
@@ -63,12 +105,31 @@ body {
     align-items: start;
 }
 
+.GridDashboard {
+    display: grid;
+    grid-template-columns:  10fr 40fr 40fr 10fr;
+    grid-template-rows: 10fr 37fr 6fr 37fr 10fr;
+    justify-items: center;
+    align-items: start;
+    text-align: center;
+}
+
 .GridHeader {
     display: grid;
     grid-template-columns:  repeat(5, 2fr);
     grid-template-rows: 1;
     justify-items: center;
     align-items: start;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+}
+
+h2 {
+    margin: 1px;
+}
+
+#home {
+    grid-column: 2/3;
 }
 
 .Overlay {
@@ -81,11 +142,26 @@ body {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-  }
+}
+
+#profile {
+    grid-column: 4/5;
+}
+
+#site {
+    grid-column: 3/4;
+}
 
 #spamSiteView {
     grid-column: 1/6;
     grid-row:1/6;
     height: 600pt;
     width: 100%;
+}
+
+.Title {
+    grid-column: 2/5;
+    font-size: 72pt;
+    margin: 15px;
+    font-family: 'learning_curvebold','acherus_grotesqueregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

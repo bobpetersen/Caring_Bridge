@@ -10,13 +10,14 @@ class ProfileDashboardData extends Component {
         this.props.dispatch({ type: PROFILE_ACTIONS.FETCH_PROFILES })
     }
     render() {
-    
-    return (
-      <div>
-          Potential Spam Profiles : {this.props.profileReducer.allProfiles.length}
+
+        return (
+            <div id="dashProfile">
+                <h2 className="DashboardData">{this.props.profileReducer.allProfiles.length}</h2>
+                Potential Spam Profiles
       </div>
-    );
-  }
+        );
+    }
 }
 
 export default connect(mapStateToProps)(ProfileDashboardData);

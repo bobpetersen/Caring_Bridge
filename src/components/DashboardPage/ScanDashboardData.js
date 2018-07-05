@@ -4,7 +4,7 @@ import { SCAN_ACTIONS } from '../../redux/actions/scanActions';
 import moment from 'moment';
 
 const mapStateToProps = reduxState => ({
-    scanReducer: reduxState.scanReducer
+  scanReducer: reduxState.scanReducer
 });
 class ScanDashboardData extends Component {
     componentDidMount() {

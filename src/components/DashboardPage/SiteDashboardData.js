@@ -14,8 +14,9 @@ class SiteDashboardData extends Component {
   render() {
     
     return (
-      <div>
-          Potential Spam Site : {this.props.siteReducer.allSites.length}
+      <div id="dashSite">
+         <h2 className="DashboardData">{this.props.siteReducer.allSites.length}</h2>
+         Potential Spam Site
       </div>
     );
   }

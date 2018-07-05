@@ -1,71 +1,84 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import SiteTableBody from './SiteTableBody';
 
-const mapStateToProps = state => ({
-  site: state.site,
+import { SITE_ACTIONS } from '../../redux/actions/siteActions';
+
+
+const mapStateToProps = reduxState => ({
+  siteReducer: reduxState.siteReducer
 });
+
 class SiteData extends Component {
   constructor(props) {
     super(props);
     this.state = {
       deactivate: false,
-    } 
+    }
   }
 
   componentDidMount() {
     this.props.dispatch({
-      type: 'FETCH_SITE'
-    })
+      type: SITE_ACTIONS.FETCH_SITE
+    });
+    this.props.dispatch({
+      type: 'ALL_SITES'
+    });
   }
 
   handleClickForDeactivate = () => {
     console.log('Deactivate button click ');
-      this.setState({ 
-        deactivate: true,
-    }) 
+    this.setState({
+      deactivate: true,
+    })
   }
 
   render() {
-    
+
     return (
       <div>
+        <h2>Filter Results</h2>
+        <SiteTableBody />
+
+
+
+
+  
+
+      <div>
           <h2>SiteData</h2>
+                  {/* {JSON.stringify(this.props.siteReducer)} */}
         <table>
           <tbody>
             <tr>
-              <th>Site</th>
-              <th>Site ID</th>
-              <th>Created</th>
-              <th>User</th>
-              <th>User ID</th>
-              <th>User Email</th>
-              <th>User Created</th>
+              <th>Site Id</th>
+              <th>First Name</th>
+              <th>Created At</th>
+              <th>User Id</th>
               <th>Reasons</th>
             </tr>
-              <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
+            {this.props.siteReducer.allSites.map((site, i) => {
+                return (
+                 <tr key={i}>
+                  <td>{site._id}</td>
+                  <td>{site.name}</td>
+                  <td><Moment format="LL">{site.createdAt}</Moment></td>
+                  <td>{site.status.userId.toString()}</td>
+                  <td>{site.audit_data.reason.toString()}</td>
+                  </tr>
+                );
+            })}
           </tbody>
         </table>
         <h2>Last Three Sites Processed</h2>
         <table>
           <tbody>
             <tr>
-              <th>Site</th>
               <th>Site ID</th>
-              <th>Created</th>
-              <th>User</th>
+              <th>First Name</th>
+              <th>Created At</th>
               <th>User ID</th>
-              <th>User Email</th>
-              <th>User Created</th>
               <th>Reasons</th>
             </tr>
               <tr>
@@ -74,12 +87,10 @@ class SiteData extends Component {
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
               </tr>
           </tbody>
         </table>
+      </div>
       </div>
     );
   }
