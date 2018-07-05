@@ -7,6 +7,24 @@
 
 }
 
+@font-face {
+    font-family: 'learning_curvebold';
+    src: url('./headerfont/learning_curve_bold_ot_tt-webfont.woff2') format('woff2'),
+         url('./headerfont/learning_curve_bold_ot_tt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+a, a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:active{
+    text-decoration-line: underline;
+}
+
 #approve {
     grid-column: 1/2;
     grid-row:1/2;
@@ -69,6 +87,12 @@ body {
     grid-template-rows: 1;
     justify-items: center;
     align-items: start;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+}
+
+#home {
+    grid-column: 2/3;
 }
 
 .Overlay {
@@ -81,11 +105,26 @@ body {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-  }
+}
+
+#profile {
+    grid-column: 4/5;
+}
+
+#site {
+    grid-column: 3/4;
+}
 
 #spamSiteView {
     grid-column: 1/6;
     grid-row:1/6;
     height: 600pt;
     width: 100%;
+}
+
+.Title {
+    grid-column: 2/5;
+    font-size: 72pt;
+    margin: 15px;
+    font-family: 'learning_curvebold','acherus_grotesqueregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

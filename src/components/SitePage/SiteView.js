@@ -4,9 +4,11 @@ import Nav from '../../components/Nav/Nav';
 import SiteData from './SiteData';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+
 import SiteLastThree from './SiteLastThree';
+
+
 
 
 const mapStateToProps = state => ({
@@ -41,10 +43,12 @@ class SiteView extends Component {
 
     return (
       <div>
+        <Header />
         <Nav />
         { content }
       </div>
     );
+   
   }
 }
 
