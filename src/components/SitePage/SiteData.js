@@ -42,7 +42,7 @@ class SiteData extends Component {
             {this.props.siteReducer.allSites.map((site, i) => {
                 return (
                  <tr key={i}>
-                  <td>{site.description}</td>
+                  <td>{site._id}</td>
                   <td>{site.name}</td>
                   <td><Moment format="LL">{site.createdAt}</Moment></td>
                   <td>{site.status.userId.toString()}</td>
