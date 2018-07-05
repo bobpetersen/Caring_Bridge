@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
 
 class SiteButtons extends Component {
 
 
-// Site buttons function goes here
+  // Site buttons function goes here
 
-// handleClickForButton
+  // handleClickForButton
 
   render() {
-    
+
     return (
       <div>
-          <h2>SiteButtons</h2>
-          {/* insert button here */}
-       
+        <Button />
       </div>
     );
   }

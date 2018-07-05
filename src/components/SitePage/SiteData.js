@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import SiteTableBody from './SiteTableBody';
+
 import { SITE_ACTIONS } from '../../redux/actions/siteActions';
-import Moment from 'react-moment';
+
 
 const mapStateToProps = reduxState => ({
   siteReducer: reduxState.siteReducer
@@ -12,7 +15,7 @@ class SiteData extends Component {
     super(props);
     this.state = {
       deactivate: false,
-    } 
+    }
   }
 
   componentDidMount() {
@@ -24,9 +27,25 @@ class SiteData extends Component {
     });
   }
 
+  handleClickForDeactivate = () => {
+    console.log('Deactivate button click ');
+    this.setState({
+      deactivate: true,
+    })
+  }
+
   render() {
-  
+
     return (
+      <div>
+        <h2>Filter Results</h2>
+        <SiteTableBody />
+
+
+
+
+  
+
       <div>
           <h2>SiteData</h2>
                   {/* {JSON.stringify(this.props.siteReducer)} */}
@@ -71,6 +90,7 @@ class SiteData extends Component {
               </tr>
           </tbody>
         </table>
+      </div>
       </div>
     );
   }
