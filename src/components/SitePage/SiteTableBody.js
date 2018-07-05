@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { SITE_ACTIONS } from '../../redux/actions/siteActions';
+
 import SiteTableHeader from '../SitePage/SiteTableHeader';
 import SiteButtons from '../SitePage/SiteButtons';
+
+import Moment from 'react-moment';
 import {
   withStyles, Table, TableBody,
   TableCell, TableHead, TablePagination,
@@ -9,6 +14,9 @@ import {
   DeleteIcon, FilterListIcon
 } from '@material-ui/core';
 
+const mapStateToProps = reduxState => ({
+  siteReducer: reduxState.siteReducer
+});
 
 class SiteTableBody extends Component {
   constructor(props) {
@@ -20,7 +28,17 @@ class SiteTableBody extends Component {
       data: [],
       page: 0,
       rowsPerPage: 5,
+      deactivate: false,
     };
+  }
+
+  componentDidMount() {
+    this.props.dispatch({
+      type: SITE_ACTIONS.FETCH_SITE
+    });
+    this.props.dispatch({
+      type: 'ALL_SITES'
+    });
   }
 
   handleRequestSort = (event, property) => {
@@ -55,6 +73,13 @@ class SiteTableBody extends Component {
     this.setState({ selected: newSelected });
   };
 
+  handleClickForDeactivate = () => {
+    console.log('Deactivate button click ');
+    this.setState({
+      deactivate: true,
+    })
+  }
+
   handleChangePage = (event, page) => {
     this.setState({ page });
   };
@@ -65,7 +90,8 @@ class SiteTableBody extends Component {
 
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
+    const data = this.props.siteReducer.allSites
+    const { order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     function getSorting(order, orderBy) {
@@ -90,18 +116,18 @@ class SiteTableBody extends Component {
               {data
                 .sort(getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(data => {
+                .map((data, i) => {
                   return (
-                    <TableRow>
+                    <TableRow key={i}>
                       <TableCell component="th" scope="row" padding="none">
                         <SiteButtons />
                       </TableCell>
-                      <TableCell numeric>{data.createdAt}</TableCell>
-                      <TableCell>{data.user}</TableCell>
                       <TableCell numeric>{data._id}</TableCell>
-                      <TableCell >{data.email}</TableCell>
                       <TableCell numeric>{data.createdAt}</TableCell>
-                      <TableCell >{data.reasons}</TableCell>
+                      <TableCell>{data.name}</TableCell>
+                      <TableCell numeric>{data.status.userId.toString()}</TableCell>
+                      <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
+                      <TableCell >{data.audit_data.reason.toString()}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -132,5 +158,4 @@ class SiteTableBody extends Component {
   }
 }
 
-
-export default SiteTableBody;
+export default connect(mapStateToProps)(SiteTableBody);
