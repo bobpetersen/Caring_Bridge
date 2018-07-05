@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
 
 class ProfileButtons extends Component {
 
 
-// Profile buttons function goes here
-
-// handleClickForButton
+  // this component needs the profile info passed to it as a prop
+  handleClick = () => {
+    this.props.dispatch({
+      type: 'APPROVAL_ITEM',
+      payload: this.props.profile,
+    });
+    this.props.history.push('/approval');
+  }
 
   render() {
-    
+
     return (
       <div>
-          <h2>Profile Buttons</h2>
-          {/* insert button here */}
-       
+        <Button onClick={this.handleClick}>Review</Button>
+
       </div>
     );
   }
