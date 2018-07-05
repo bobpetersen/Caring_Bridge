@@ -8,7 +8,10 @@ class ProfileButtons extends Component {
   handleClick = () => {
     this.props.dispatch({
       type: 'APPROVAL_ITEM',
-      payload: this.props.profile,
+      payload: {
+        type: 'profile',
+        item: this.props.profile,
+      }
     });
     this.props.history.push('/approval');
   }

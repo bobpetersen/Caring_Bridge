@@ -8,7 +8,10 @@ class SiteButtons extends Component {
   handleClick = () => {
     this.props.dispatch({
       type: 'APPROVAL_ITEM',
-      payload: this.props.site,
+      payload: {
+        type: 'site',
+        item: this.props.site,
+      }
     });
     this.props.history.push('/approval');
   }
