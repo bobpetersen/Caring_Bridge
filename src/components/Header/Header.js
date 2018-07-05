@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
 import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 
 const mapStateToProps = state => ({
@@ -22,9 +21,7 @@ class Header extends Component {
     return (
       <div className="GridHeader">
         <h1 className="Title">Sift</h1>
-        <Link to="/home">
         <Button onClick={this.logout}>Sign Out </Button>
-        </Link>
       </div>
     );
   }
