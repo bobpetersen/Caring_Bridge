@@ -17,7 +17,8 @@ const ProfileSchema = new Schema({
         flagged: { type: Boolean },
         reason: { type: Array },
         result: { type: String },
-        auditedBy: { type: String }
+        auditedBy: { type: String },
+        scannedAt: { type: Date },
     }
 }, { collection: 'profile' });
 
