@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { SCAN_ACTIONS } from '../../redux/actions/scanActions';
-import Moment from 'react-moment';
 import moment from 'moment';
 
 const mapStateToProps = reduxState => ({
