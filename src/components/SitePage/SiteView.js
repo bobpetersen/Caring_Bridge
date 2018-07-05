@@ -6,6 +6,7 @@ import SiteData from './SiteData';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+import Header from '../Header/Header';
 
 
 const mapStateToProps = state => ({
@@ -40,6 +41,7 @@ class SiteView extends Component {
 
     return (
       <div>
+        <Header />
         <Nav />
         { content }
       </div>

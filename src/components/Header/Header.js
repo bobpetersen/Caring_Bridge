@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ title }) => (
-  <div className="instructions">
+const Header = () => (
+  <div>
     <div>
-      <h1 className="lead">{ title }</h1>
+      <h1 >Sift</h1>
     </div>
   </div>
 );

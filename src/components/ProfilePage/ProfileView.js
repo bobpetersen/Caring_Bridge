@@ -6,6 +6,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+import Header from '../Header/Header';
 
 
 const mapStateToProps = state => ({
@@ -35,6 +36,7 @@ class ProfileView extends Component {
 
     return (
       <div>
+        <Header />
         <Nav />
         { content }
       </div>
