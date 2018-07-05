@@ -15,7 +15,7 @@ async function runFilter() {
     let recentScanDate;
     if (recentScan.length === 0) {
       // if this is the first scan ever, let the starting scan point be 1 day ago
-      recentScanDate = new Date(new Date() - 86400000);
+      recentScanDate = new Date(new Date() - 8640000000);
     }
     else {
       // otherwise, the starting scan point will be the ending scan point of the previous scan
