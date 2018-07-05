@@ -104,6 +104,6 @@ body {
 .Title {
     grid-column: 2/5;
     font-size: 72pt;
-    margin: 1px;
+    margin: 15px;
     font-family: 'learning_curvebold','acherus_grotesqueregular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
