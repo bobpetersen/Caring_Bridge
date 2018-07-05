@@ -5,6 +5,7 @@ import { callScan } from '../requests/scanRequests';
 function* getScanInfo() {
   try {
     const scanInfo = yield callScan();
+    console.log(scanInfo);
     yield put({
       type: SCAN_ACTIONS.SET_SCAN,
       payload: scanInfo,
@@ -16,7 +17,7 @@ function* getScanInfo() {
 }
 
 function* scanSaga() {
-  yield takeEvery('SCAN_INFO', getScanInfo);
+  yield takeEvery('FETCH_SCAN', getScanInfo);
 }
 
 export default scanSaga;
