@@ -14,7 +14,7 @@ class ScanDashboardData extends Component {
     return (
       <div id="dashScanned">
         <h2 className="DashboardData">{JSON.stringify(this.props.scanReducer.scanInfo.sitesScanned)}</h2>
-        Site Scanned
+        Sites Scanned
       </div>
     );
   }
