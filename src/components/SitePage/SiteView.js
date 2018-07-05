@@ -43,7 +43,7 @@ class SiteView extends Component {
 
     return (
       <div>
-        {/* <Header /> */}
+        <Header />
         <Nav />
         { content }
       </div>
