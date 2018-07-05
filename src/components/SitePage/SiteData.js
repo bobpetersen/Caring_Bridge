@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Moment from 'react-moment';
 import SiteTableBody from './SiteTableBody';
 
 import { SITE_ACTIONS } from '../../redux/actions/siteActions';
