@@ -7,8 +7,8 @@ import ScanDashboardData from './ScanDashboardData';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
 import Header from '../Header/Header';
+import RunDashboardData from './RunDashboardData';
 
 
 const mapStateToProps = state => ({
@@ -28,34 +28,16 @@ class Dashboard extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch({
-      type: LOGIN_ACTIONS.LOGOUT
-    });
-    // this.props.history.push('home');
-  }
-
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <h1
-            id="welcome"
-          >
-            Welcome, { this.props.user.userName }!
-          </h1>
-          <p>Dashboard View</p>
-           <SiteDashboardData/>
-           <ProfileDashboardData/>
-           <ScanDashboardData/>
-           
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+        <div className="GridDashboard">
+           <SiteDashboardData />
+           <ProfileDashboardData />
+           <ScanDashboardData />
+           <RunDashboardData />
         </div>
       );
     }
