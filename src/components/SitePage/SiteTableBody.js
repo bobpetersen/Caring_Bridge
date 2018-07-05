@@ -93,7 +93,7 @@ class SiteTableBody extends Component {
     const data = this.props.siteReducer.allSites
     const { order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
-
+    
     function getSorting(order, orderBy) {
       return order === 'desc'
         ? (a, b) => (b[orderBy] < a[orderBy] ? -1 : 1)
@@ -102,7 +102,7 @@ class SiteTableBody extends Component {
 
     return (
       <Paper>
-        <div >
+        <div>
           <Table aria-labelledby="tableTitle">
             <SiteTableHeader
               numSelected={selected.length}
@@ -119,13 +119,13 @@ class SiteTableBody extends Component {
                 .map((data, i) => {
                   return (
                     <TableRow key={i}>
-                      <TableCell component="th" scope="row" padding="none">
+                      <TableCell scope="row" padding="none">
                         <SiteButtons />
                       </TableCell>
-                      <TableCell numeric>{data._id}</TableCell>
-                      <TableCell numeric>{data.createdAt}</TableCell>
+                      <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                       <TableCell>{data.name}</TableCell>
                       <TableCell numeric>{data.status.userId.toString()}</TableCell>
+                      {/* <TableCell numeric>Email goes here</TableCell> */}
                       <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                       <TableCell >{data.audit_data.reason.toString()}</TableCell>
                     </TableRow>
