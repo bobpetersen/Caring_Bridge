@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import SiteData from './SiteData';
+import Header from '../Header/Header';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
