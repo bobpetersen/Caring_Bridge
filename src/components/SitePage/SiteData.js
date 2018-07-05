@@ -63,7 +63,7 @@ class SiteData extends Component {
                  <tr key={i}>
                   <td>{site._id}</td>
                   <td>{site.name}</td>
-                  <td><Moment format="LL">{site.createdAt}</Moment></td>
+                  {/* <td><Moment format="LL">{site.createdAt}</Moment></td> */}
                   <td>{site.status.userId.toString()}</td>
                   <td>{site.audit_data.reason.toString()}</td>
                   </tr>
