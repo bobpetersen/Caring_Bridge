@@ -35,7 +35,7 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-        < ProfileData / >
+        < ProfileData />
         </div>
       );
     }
