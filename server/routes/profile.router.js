@@ -28,7 +28,7 @@ router.get('/locate', (req, res) => {
 });
 
 // takes in 'status' param with value 'spam', or 'safe'
-// takes in body with id of profile, reason (array of reasons why flagged), and auditedBy (employee id string)
+// takes in body with id, reason (array of reasons why flagged)
 router.put('/:status', (req, res) => {
     let statusUpdate = req.params.status;
     if (statusUpdate === 'spam') {
@@ -38,7 +38,7 @@ router.put('/:status', (req, res) => {
                 flagged: false,
                 result: statusUpdate,
                 reason: req.body.reason,
-                auditedBy: req.body.auditedBy,
+                auditedBy: req.user.username,
             }
         })
             .then(() => {
