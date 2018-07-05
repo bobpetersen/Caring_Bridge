@@ -1,10 +1,10 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 const Header = () => (
-  <div>
-    <div>
-      <h1 >Sift</h1>
-    </div>
+  <div className="GridHeader">
+    <h1 className="Title">Sift</h1>
+    <Button >Sign Out </Button>
   </div>
 );
 
