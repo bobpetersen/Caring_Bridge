@@ -16,7 +16,7 @@ class SiteDashboardData extends Component {
     return (
       <div id="dashSite">
          <h2 className="DashboardData">{this.props.siteReducer.allSites.length}</h2>
-         Potential Spam Site
+         Potential Spam Sites
       </div>
     );
   }

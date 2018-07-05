@@ -8,7 +8,7 @@ function* getScanInfo() {
     console.log(scanInfo);
     yield put({
       type: SCAN_ACTIONS.SET_SCAN,
-      payload: scanInfo,
+      payload: scanInfo[0],
     });
   }
   catch (error) {
