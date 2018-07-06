@@ -8,7 +8,7 @@ import { SITE_ACTIONS } from '../actions/siteActions';
 //  type: 'profile' or 'site'
 //  item: {the profile or site} 
 // }
-const approvalItem = (state = {type: 'site', item: {name: 'bobbyphoton'}}, action) => {
+const approvalItem = (state = {}, action) => {
   switch (action.type) {
     case 'APPROVAL_ITEM':
       return action.payload;

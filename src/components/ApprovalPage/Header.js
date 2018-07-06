@@ -20,6 +20,7 @@ class ApprovalHeader extends Component {
     }
 
     handleThumb = (type) => (event) => {
+        event.preventDefault();
         let action = {};
         if (this.props.approval.approvalItem.type === 'site') {
             action.type = 'SET_SITE_STATUS';
@@ -27,9 +28,12 @@ class ApprovalHeader extends Component {
         else if (this.props.approval.approvalItem.type === 'profile') {
             action.type = 'SET_PROFILE_STATUS';
         }
-        action.payload.type = type;
-        action.payload.item = this.props.approval.approvalItem.item;
-        event.preventDefault();
+        action.payload = {};
+        action.payload.status = type;
+        action.payload[this.props.approval.approvalItem.type] = this.props.approval.approvalItem.item;
+        this.props.dispatch(action);
+        
+        console.log(this.props.history);
         this.props.history.goBack();
     }
 
