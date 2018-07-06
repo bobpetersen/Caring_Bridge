@@ -9,10 +9,10 @@ import {
 
 const columnHeader = [
   { id: 'site', numeric: false, disablePadding: true, label: 'Site' },
-  { id: 'createdAt', numeric: true, disablePadding: false, label: 'Created' },
+  { id: 'createdAt', numeric: true, disablePadding: false, label: 'Site Created' },
   { id: 'user', numeric: false, disablePadding: true, label: 'User' },
   { id: '_id', numeric: true, disablePadding: false, label: 'User ID' },
-  { id: 'email', numeric: false, disablePadding: true, label: 'User Email' },
+  // { id: 'email', numeric: false, disablePadding: true, label: 'User Email' },
   { id: 'createdAt', numeric: true, disablePadding: false, label: 'User Created' },
   { id: 'reasons', numeric: false, disablePadding: true, label: 'Reasons' },
 ];
@@ -33,8 +33,6 @@ class SiteTableHeader extends Component {
     const { order, orderBy } = this.props;
 
     return (
-      <div>
-        <Paper >
         <TableHead>
           <TableRow>
             {columnHeader.map(data => {
@@ -63,8 +61,6 @@ class SiteTableHeader extends Component {
             }, this)}
           </TableRow>
         </TableHead>
-        </Paper>
-      </div>
     );
   }
 }
