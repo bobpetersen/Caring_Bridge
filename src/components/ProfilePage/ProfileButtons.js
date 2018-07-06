@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
 
 class ProfileButtons extends Component {
-
-
-// Profile buttons function goes here
-
-// handleClickForButton
 
   render() {
     
     return (
       <div>
-          <h2>Profile Buttons</h2>
-          {/* insert button here */}
-       
+        <Button />
       </div>
     );
   }
