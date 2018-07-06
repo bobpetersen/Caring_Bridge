@@ -25,7 +25,7 @@ async function runFilter() {
 
     // scan Profiles
     let profilesToScan = await Profile.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
-    console.log(profilesToScan);
+    console.log('profileToScan',profilesToScan);
     for (profile of profilesToScan) {
       let profileResult = await profileFilter(profile);
       if (profileResult.status) {
@@ -44,6 +44,7 @@ async function runFilter() {
     let sitesToScan = await Site.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
     for (site of sitesToScan) {
       let siteResult = await siteFilter(site);
+      console.log('siteToScan:',sitesToScan)
       if (siteResult.status) {
         let siteUpdated = {...site._doc, audit_data: {
           flagged: true,
@@ -57,7 +58,7 @@ async function runFilter() {
     }
 
     // create new scan
-    await Scan.create([{ scanTime: currentScanDate, sitesScanned: profilesToScan.length }]);
+    await Scan.create([{ scanTime: currentScanDate, sitesScanned: (profilesToScan.length  + sitesToScan.length)}]);
   } catch (error) {
     console.log(error);
   }
