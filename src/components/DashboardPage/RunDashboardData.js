@@ -11,7 +11,7 @@ class RunDashboardData extends Component {
         this.props.dispatch({ type: SCAN_ACTIONS.FETCH_SCAN });
     }
     render() {
-        const date = this.props.scanReducer.scanInfo.lastScannedDate
+        const date = this.props.scanReducer.scanInfo.scanTime
         const dateFormat = moment(date).format('MM/DD LT');
 
         return (
