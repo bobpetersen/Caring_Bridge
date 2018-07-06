@@ -29,6 +29,7 @@ class SiteTableBody extends Component {
       page: 0,
       rowsPerPage: 5,
       deactivate: false,
+
     };
   }
 
@@ -120,7 +121,7 @@ class SiteTableBody extends Component {
                   return (
                     <TableRow key={i}>
                       <TableCell scope="row" padding="none">
-                        <SiteButtons />
+                        <SiteButtons site={data} buttonLabel="Review"/>
                       </TableCell>
                       <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                       <TableCell>{data.name}</TableCell>
