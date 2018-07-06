@@ -42,9 +42,9 @@ async function runFilter() {
 
     // scan Sites
     let sitesToScan = await Site.find({createdAt: {$gte: recentScanDate, $lt: currentScanDate}});
+    console.log('siteToScan:',sitesToScan);
     for (site of sitesToScan) {
       let siteResult = await siteFilter(site);
-      console.log('siteToScan:',sitesToScan)
       if (siteResult.status) {
         let siteUpdated = {...site._doc, audit_data: {
           flagged: true,
