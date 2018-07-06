@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
-import Header from '../Header/Header';
+
+import { TextField, Button } from '@material-ui/core';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -39,6 +40,10 @@ class LoginPage extends Component {
     }
   }
 
+  handleClick = (event) => {
+    this.props.history.push('/register');
+  }
+
   handleInputChange = (event) => {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -56,7 +61,7 @@ class LoginPage extends Component {
           className="alert"
           role="alert"
         >
-          { this.props.login.message }
+          {this.props.login.message}
         </h2>
       );
     }
@@ -65,15 +70,15 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        { this.renderAlert() }
-        <form onSubmit={this.login}>
+      <div className="GridLoginView">
+        <h1 className="TitleLogin">Sift</h1>
+        <form className="Login" onSubmit={this.login}>
+          <p id="alert">{this.renderAlert()}</p>
           <h1>Login</h1>
           <div>
             <label htmlFor="username">
-              Username:
-              <input
+              <TextField
+                label="Username"
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -83,8 +88,8 @@ class LoginPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
-              <input
+              <TextField
+                label="Password"
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -93,12 +98,14 @@ class LoginPage extends Component {
             </label>
           </div>
           <div>
-            <input
+            <Button
               type="submit"
               name="submit"
               value="Log In"
-            />
-            <Link to="/register">Register</Link>
+            >
+              Log In
+            </Button>
+            <Button onClick={this.handleClick}>Register</Button>
           </div>
         </form>
       </div>
