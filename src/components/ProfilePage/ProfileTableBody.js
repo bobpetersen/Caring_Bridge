@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { PROFILE_ACTIONS } from '../../redux/actions/siteActions';
+import { PROFILE_ACTIONS } from '../../redux/actions/profileActions';
 
 import ProfileTableHeader from '../ProfilePage/ProfileTableHeader';
-import ProfileButtons from '../ProfilePage/SiteButtons';
+import ProfileButtons from '../ProfilePage/ProfileButtons';
 
 import Moment from 'react-moment';
 import {
@@ -120,7 +120,7 @@ class ProfileTableBody extends Component {
                   return (
                     <TableRow key={i}>
                       <TableCell scope="row" padding="none">
-                        <SiteButtons />
+                        <ProfileButtons profile={data} buttonLabel="Review"/>
                       </TableCell>
                       <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                       <TableCell>{data.name}</TableCell>
