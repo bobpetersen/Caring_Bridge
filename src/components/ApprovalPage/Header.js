@@ -8,6 +8,7 @@ import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
 
 const mapStateToProps = state => ({
     user: state.user,
+    approval: state.approval,
 });
 
 class ApprovalHeader extends Component {
@@ -18,13 +19,21 @@ class ApprovalHeader extends Component {
         });
     }
 
-    handleNotSpam = (event) => {
+    handleThumb = (type) => (event) => {
         event.preventDefault();
-        this.props.history.goBack();
-    }
-
-    handleSpam = (event) => {
-        event.preventDefault();
+        let action = {};
+        if (this.props.approval.approvalItem.type === 'site') {
+            action.type = 'SET_SITE_STATUS';
+        }
+        else if (this.props.approval.approvalItem.type === 'profile') {
+            action.type = 'SET_PROFILE_STATUS';
+        }
+        action.payload = {};
+        action.payload.status = type;
+        action.payload[this.props.approval.approvalItem.type] = this.props.approval.approvalItem.item;
+        this.props.dispatch(action);
+        
+        console.log(this.props.history);
         this.props.history.goBack();
     }
 
@@ -38,13 +47,13 @@ class ApprovalHeader extends Component {
                     <div className="ContainerUp">
                         <input type="image" src="icons/grey-thumb-up.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" onClick={this.handleNotSpam}/>
+                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" onClick={this.handleThumb('safe')}/>
                         </div>
                     </div>
                     <div className="ContainerDown">
                         <input type="image" src="icons/grey-thumb-down.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" onClick={this.handleSpam}/>
+                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" onClick={this.handleThumb('spam')}/>
                         </div>
                     </div>
                     <p id="deny">Spam</p>
