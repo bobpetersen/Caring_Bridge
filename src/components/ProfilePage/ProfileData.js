@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProfileTableBody from './SiteTableBody';
+import ProfileTableBody from './ProfileTableBody';
 
 class ProfileData extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class ProfileData extends Component {
   render() {
     
     return (
-           <div>
+      <div>
         <h2>Filter Results</h2>
         <ProfileTableBody />
       </div>
