@@ -24,6 +24,6 @@ export const triggerLogin = (username, password) => ({
 export function formError() {
   return {
     type: LOGIN_ACTIONS.INPUT_ERROR,
-    payload: 'Enter your username and password!',
+    payload: 'Please try again, login failed',
   };
 }

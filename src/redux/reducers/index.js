@@ -4,6 +4,7 @@ import profileReducer from './profileReducer';
 import scanReducer from './scanReducer';
 import siteReducer from './siteReducer'
 import user from './userReducer';
+import approval from './approvalReducer';
 
 const store = combineReducers({
   login,
@@ -11,6 +12,7 @@ const store = combineReducers({
   scanReducer,
   siteReducer,
   user,
+  approval,
 });
 
 export default store;

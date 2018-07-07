@@ -11,6 +11,7 @@ import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
 
 const mapStateToProps = state => ({
   user: state.user,
+  approval: state.approval,
 });
 
 class ProfileView extends Component {
@@ -21,22 +22,33 @@ class ProfileView extends Component {
     });
   }
 
- 
+
   render() {
     let content = null;
 
     if (this.props.user.userName) {
-      content = (
-        <div className="Grid">
-            <iframe id="spamSiteView" src="https://www.caringbridge.org/"></iframe>
-        </div>
-      );
+      if (this.props.approval.approvalItem.type == 'site') {
+        let contentUrl = `https://qa3.caringbridge.org/visit/${this.props.approval.approvalItem.item.name}`
+        content = (
+          <div className="Grid">
+            <iframe id="spamSiteView" src={contentUrl}></iframe>
+          </div>
+        );
+      }
+      else if (this.props.approval.approvalItem.type == 'profile') {
+        let contentUrl = `https://qa3.caringbridge.org/profile/${this.props.approval.approvalItem.item._id}`
+        content = (
+          <div className="Grid">
+            <iframe id="spamSiteView" src={contentUrl}></iframe>
+          </div>
+        );
+      }
     }
 
     return (
       <div>
-        <Header history={this.props.history}/>
-        { content }
+        <Header history={this.props.history} />
+        {content}
       </div>
     );
   }

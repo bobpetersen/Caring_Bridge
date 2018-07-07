@@ -37,7 +37,8 @@ class LastThree extends Component {
 
   render() {
 
-    const data = this.props.siteReducer.allSites
+
+    const data = this.props.siteReducer.recentThreeSites
 
     return (
       <div>
@@ -59,7 +60,9 @@ class LastThree extends Component {
                   return (
                     <TableRow key={i}>
                     <TableCell scope="row" padding="none">
-                      <SiteButtons />
+
+                      <SiteButtons site={data} buttonLabel="Edit"/>
+
                     </TableCell>
                     <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                     <TableCell>{data.name}</TableCell>
