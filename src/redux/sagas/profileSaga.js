@@ -25,9 +25,7 @@ function* setProfileStatus(action) {
   let urlString = 'api/profile/' + action.payload.status
   yield call(axios.put, urlString, 
             {id: action.payload.profile._id, 
-            reason: action.payload.profile.audit_data.reason, 
-            result: action.payload.profile.audit_data.result, 
-            auditedBy: action.payload.profile.audit_data.auditedBy}, 
+            reason: action.payload.profile.audit_data.reason}, 
             config);
   yield put({
     type: 'CHANGE_RECENT_THREE',

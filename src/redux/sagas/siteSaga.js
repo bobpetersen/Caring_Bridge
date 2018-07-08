@@ -27,9 +27,7 @@ function* setSiteStatus(action) {
   let url = 'api/site/' + action.payload.status
   yield call(axios.put, url, 
             {id: action.payload.site._id, 
-            reason: action.payload.site.audit_data.reason, 
-            result: action.payload.site.audit_data.result, 
-            auditedBy: action.payload.site.audit_data.auditedBy}, 
+            reason: action.payload.site.audit_data.reason},
             config);
   yield put({
     type: 'CHANGE_RECENT_THREE_SITE',

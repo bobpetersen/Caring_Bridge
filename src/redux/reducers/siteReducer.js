@@ -12,6 +12,7 @@ const allSites = (state = [], action) => {
 }
 // list of last 3 deactivated sites 
 const recentThreeSites = (state = [], action) => {
+  
   switch (action.type) {
     case 'CHANGE_RECENT_THREE_SITE':
       if(state.length < 3) {
