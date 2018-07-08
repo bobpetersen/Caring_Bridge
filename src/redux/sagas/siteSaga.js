@@ -13,6 +13,10 @@ function* getSites() {
   try {
     // getSites axios function is located in siteRequest
     const sites = yield callSite();
+    for (let site of sites) {
+      let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
+      site.user = user.data[0];
+    }
     yield put({
       type: 'SET_SITE',
       payload: sites,
