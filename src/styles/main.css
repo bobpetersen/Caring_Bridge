@@ -73,18 +73,37 @@ body {
     font-size: 64px;
 }
 
+#dashAllFlagged {
+    grid-column: 2/4;
+    grid-row:1/2;
+    margin: 15px;
+    font-style: italic;
+    font-size: 16pt;
+    color: #777676;
+}
+
+#dashMostRecent {
+    grid-column: 2/4;
+    grid-row:2/3;
+    grid-area: d;
+    align-self: end; 
+    font-style: italic;
+    font-size: 16pt;
+    color: #777676;
+}
+
 #dashProfile {
     grid-column: 3/4;
     grid-row:2/3;
 }
 
 #dashScanned {
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row:4/5;
 }
 
 #dashScanRun {
-    grid-column: 3/4;
+    grid-column: 2/3;
     grid-row:4/5;
 }
 
@@ -117,6 +136,12 @@ body {
     justify-items: center;
     align-items: start;
     text-align: center;
+    grid-template-areas: 
+    "a a b b"
+    "c d d e"
+    "f f f f"
+    "f f f f"
+    "f f f f";
 }
 
 .GridHeader {

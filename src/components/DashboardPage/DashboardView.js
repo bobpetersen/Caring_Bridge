@@ -34,10 +34,12 @@ class Dashboard extends Component {
     if (this.props.user.userName) {
       content = (
         <div className="GridDashboard">
-           <SiteDashboardData />
-           <ProfileDashboardData />
-           <ScanDashboardData />
-           <RunDashboardData />
+          <h2 id="dashAllFlagged">All Flagged</h2>
+          <SiteDashboardData />
+          <ProfileDashboardData />
+          <h2 id="dashMostRecent">Most Recent Scan </h2>
+          <RunDashboardData />
+          <ScanDashboardData />
         </div>
       );
     }
@@ -46,7 +48,7 @@ class Dashboard extends Component {
       <div>
         <Header />
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }
