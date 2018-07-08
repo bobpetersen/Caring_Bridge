@@ -18,7 +18,7 @@ class RunDashboardData extends Component {
             <div id="dashScanRun">
                 <div className="DashboardData">{dateFormat}</div>
                 <br />
-                Last Scan Run
+                Scan Run
             </div>
         );
     }

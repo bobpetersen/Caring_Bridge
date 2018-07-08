@@ -38,7 +38,8 @@ class LastThree extends Component {
   render() {
 
 
-    const data = this.props.siteReducer.recentThreeSites
+    const siteData = this.props.siteReducer.recentThreeSites
+
 
     return (
       <div>
@@ -56,7 +57,7 @@ class LastThree extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              { data.map((data, i) => {
+              { siteData.map((data, i) => {
                   return (
                     <TableRow key={i}>
                     <TableCell scope="row" padding="none">
