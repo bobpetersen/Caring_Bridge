@@ -29,7 +29,7 @@ function* setProfileStatus(action) {
             config);
   yield put({
     type: 'CHANGE_RECENT_THREE',
-    payload: action.payload.profile,
+    payload: {...action.payload.profile, marked: action.payload.status}
   });
   yield put({
     type: 'FETCH_PROFILES',

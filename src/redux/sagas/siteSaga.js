@@ -26,13 +26,14 @@ function* getSites() {
 function* setSiteStatus(action) {
   let url = 'api/site/' + action.payload.status
   yield call(axios.put, url, 
-            {id: action.payload.site._id, 
+            {id: action.payload.site._id,
             reason: action.payload.site.audit_data.reason},
             config);
   yield put({
     type: 'CHANGE_RECENT_THREE_SITE',
-    payload: action.payload.site,
-  });
+    payload: {...action.payload.site, marked: action.payload.status}
+  })
+
   yield put({
     type: 'FETCH_SITE',
   });

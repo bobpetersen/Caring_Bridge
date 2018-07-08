@@ -16,6 +16,22 @@ const approvalItem = (state = {}, action) => {
   return state;
 }
 
+
+const recentThreeSites = (state = [], action) => {
+  
+  switch (action.type) {
+    case 'CHANGE_RECENT_THREE_SITE':
+      if(state.length < 3) {
+        return [action.payload, ...state];
+      }
+      else {
+        return [action.payload, state[0], state[1]];
+      }
+  }
+  return state;
+}
+
+
 export default combineReducers({
   approvalItem,
 });

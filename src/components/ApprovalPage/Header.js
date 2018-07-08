@@ -37,26 +37,35 @@ class ApprovalHeader extends Component {
         this.props.history.goBack();
     }
 
+    handleExit = (event) => {
+        event.preventDefault();
+        this.props.history.goBack();
+    }
+
     render() {
         let content = null;
 
         if (this.props.user.userName) {
             content = (
                 <form className="GridHeader">
-                    <p id="approve">Safe</p>
+                    <h4 id="approve">Safe</h4>
+                    <p id="approved">(Remove Flag)</p>
                     <div className="ContainerUp">
                         <input type="image" src="icons/grey-thumb-up.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-up.png" alt="Submit" onClick={this.handleThumb('safe')}/>
+                            <input type="image" src="icons/green-thumb-up.png" alt="Submit" onClick={this.handleThumb('safe')}/>
                         </div>
                     </div>
                     <div className="ContainerDown">
                         <input type="image" src="icons/grey-thumb-down.png" alt="Submit" />
                         <div className="Overlay">
-                            <input type="image" src="icons/purple-thumb-down.png" alt="Submit" onClick={this.handleThumb('spam')}/>
+                            <input type="image" src="icons/red-thumb-down.png" alt="Submit" onClick={this.handleThumb('spam')}/>
                         </div>
                     </div>
                     <p id="deny">Spam</p>
+                    <p id="denied">(Deactivate)</p>
+                    <p id="exit">Go Back</p>
+                    <input id="exiting" type="image" src="icons/window-close.png" alt="Submit" onClick={this.handleExit}/>
                 </form>
             );
         }

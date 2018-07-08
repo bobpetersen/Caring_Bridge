@@ -33,10 +33,18 @@ a:hover, a:active{
 #approve {
     grid-column: 1/2;
     grid-row:1/2;
-    padding-top: 23%;
+    padding-top: 20%;
     align-content: center;
     align-items: center;
     font-size: 2em;
+}
+
+#approved {
+    grid-column: 1/2;
+    grid-row:1/2;
+    padding-top: 46%;
+    align-content: center;
+    align-items: center;
 }
 
 body {
@@ -73,18 +81,37 @@ body {
     font-size: 64px;
 }
 
+#dashAllFlagged {
+    grid-column: 2/4;
+    grid-row:1/2;
+    margin: 15px;
+    font-style: italic;
+    font-size: 16pt;
+    color: #777676;
+}
+
+#dashMostRecent {
+    grid-column: 2/4;
+    grid-row:2/3;
+    grid-area: d;
+    align-self: end; 
+    font-style: italic;
+    font-size: 16pt;
+    color: #777676;
+}
+
 #dashProfile {
     grid-column: 3/4;
     grid-row:2/3;
 }
 
 #dashScanned {
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row:4/5;
 }
 
 #dashScanRun {
-    grid-column: 3/4;
+    grid-column: 2/3;
     grid-row:4/5;
 }
 
@@ -102,6 +129,29 @@ body {
     font-size: 2em;
 }
 
+#denied {
+    grid-column: 5/6;
+    grid-row:1/2;
+    padding-top: 45%;
+    align-content: center;
+    align-items: center;
+}
+
+#exit {
+    grid-column: 5/6;
+    grid-row:1/2;
+    padding-top: 0%;
+    padding-left: 40%;
+    margin: 2%;
+}
+
+#exiting {
+    grid-column: 5/6;
+    grid-row:1/2;
+    padding-top: 0%;
+    padding-left: 80%;
+}
+
 .Grid {
     display: grid;
     grid-template-columns:  repeat(5, 2fr);
@@ -117,6 +167,12 @@ body {
     justify-items: center;
     align-items: start;
     text-align: center;
+    grid-template-areas: 
+    "a a b b"
+    "c d d e"
+    "f f f f"
+    "f f f f"
+    "f f f f";
 }
 
 .GridHeader {
