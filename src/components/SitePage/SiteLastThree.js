@@ -49,6 +49,7 @@ class LastThree extends Component {
             <TableHead>
               <TableRow>
                 <TableCell>Reviewed Site</TableCell>
+                <TableCell>Flagged</TableCell>
                 <TableCell>Site Created</TableCell>
                 <TableCell>User</TableCell>
                 <TableCell>User ID</TableCell>
@@ -65,6 +66,7 @@ class LastThree extends Component {
                       <SiteButtons site={data} buttonLabel="Edit"/>
 
                     </TableCell>
+                    <TableCell>{data.marked.toString()}</TableCell>
                     <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                     <TableCell>{data.name}</TableCell>
                     <TableCell numeric>{data.status.userId.toString()}</TableCell>
