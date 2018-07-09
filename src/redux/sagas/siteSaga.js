@@ -23,6 +23,7 @@ function* getSites() {
       let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
       site.user = user.data[0];
     }
+    let sites = yield callSite();
     yield put({
       type: 'SET_SITE',
       payload: sites,
@@ -38,11 +39,15 @@ function* setSiteStatus(action) {
 
   let url = 'api/site/' + action.payload.status
 
-  yield call(axios.put, url, {id: action.payload.site._id, reason: action.payload.site.audit_data.reason}, config);
+  yield call(axios.put, url, 
+            {id: action.payload.site._id,
+            reason: action.payload.site.audit_data.reason},
+            config);
   yield put({
     type: 'CHANGE_RECENT_THREE_SITE',
-    payload: action.payload.site,
-  });
+    payload: {...action.payload.site, marked: action.payload.status}
+  })
+
   yield put({
     type: 'FETCH_SITE',
   });
