@@ -38,7 +38,7 @@ class ProfileLastThree extends Component {
     const profileData = this.props.profileReducer.recentThreeProfiles
     return (
       <div>
-        <h2>Last Three Profiles Processed</h2>
+        <h2>Recently Processed</h2>
         <Paper>
           <Table>
             <TableHead>

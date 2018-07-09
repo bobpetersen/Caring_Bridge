@@ -43,7 +43,7 @@ class LastThree extends Component {
 
     return (
       <div>
-        <h2>Last Three Sites Processed</h2>
+        <h2>Recently Processed</h2>
         <Paper>
           <Table>
             <TableHead>
