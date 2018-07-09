@@ -55,7 +55,7 @@ router.put('/:status', (req, res) => {
                 result: statusUpdate,
                 flagged: false,
                 reason: req.body.reason,
-                auditedBy: req.body.auditedBy
+                auditedBy: req.user.username,
             }
         })
             .then(() => {
