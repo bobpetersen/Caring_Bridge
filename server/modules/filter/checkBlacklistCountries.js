@@ -15,8 +15,7 @@ async function checkBlacklistCountries(ip) {
       return false;
     }
   } catch (error) {
-    console.log(error);
-    return false;
+    throw `ipstack GET ${error}`;
   };
 }
 

@@ -34,10 +34,10 @@ class ProfileTableBody extends Component {
 
   componentDidMount() {
     this.props.dispatch({
-      type: PROFILE_ACTIONS.FETCH_PROFILE
+      type: PROFILE_ACTIONS.FETCH_PROFILES
     });
     this.props.dispatch({
-      type: 'ALL_PROFILES'
+      type: 'FETCH_PROFILES'
     });
   }
 
@@ -90,7 +90,7 @@ class ProfileTableBody extends Component {
 
   render() {
     const { classes } = this.props;
-    const data = this.props.profileReducer.allProfile
+    const data = this.props.profileReducer.allProfiles
     const { order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     
@@ -103,6 +103,7 @@ class ProfileTableBody extends Component {
     return (
       <Paper>
         <div>
+          {/* { JSON.stringify (this.props.profileReducer.allProfiles) } */}
           <Table aria-labelledby="tableTitle">
             <ProfileTableHeader
               numSelected={selected.length}
@@ -122,10 +123,9 @@ class ProfileTableBody extends Component {
                       <TableCell scope="row" padding="none">
                         <ProfileButtons profile={data} buttonLabel="Review"/>
                       </TableCell>
-                      <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
-                      <TableCell>{data.name}</TableCell>
-                      <TableCell numeric>{data.status.userId.toString()}</TableCell>
-                      {/* <TableCell numeric>Email goes here</TableCell> */}
+                      <TableCell numeric>{data._id.toString()}</TableCell>
+                      <TableCell>{data.email.address}</TableCell>
+                      <TableCell>{data.ip}</TableCell>
                       <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                       <TableCell >{data.audit_data.reason.toString()}</TableCell>
                     </TableRow>
