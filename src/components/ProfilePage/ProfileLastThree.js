@@ -57,7 +57,7 @@ class ProfileLastThree extends Component {
                   return (
                     <TableRow key={i}>
                       <TableCell scope="row" padding="none">
-                        <ProfileButtons profile={data} buttonLabel="Review"/>
+                        <ProfileButtons profile={data} buttonLabel="Edit"/>
                       </TableCell>
                       <TableCell>{data.audit_data.flagged.toString()}</TableCell>
                       <TableCell numeric>{data._id.toString()}</TableCell>
