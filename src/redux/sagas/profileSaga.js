@@ -10,6 +10,7 @@ const config = {
 function* getProfiles() {
   try {
     let profiles = yield call(axios.get, '/api/profile/', config);
+    console.log(profiles);
     yield put({type: 'SET_PROFILES', payload: profiles.data});
   } catch (error) {
 

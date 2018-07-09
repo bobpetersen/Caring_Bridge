@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileData from './ProfileData'
+import Header from '../Header/Header';
 import Nav from '../../components/Nav/Nav';
 
+import ProfileData from './ProfileData'
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
-import Header from '../Header/Header';
+import ProfileLastThree from '../ProfilePage/ProfileLastThree';
 
 
 const mapStateToProps = state => ({
@@ -35,7 +34,8 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-        < ProfileData />
+        <ProfileData />
+        <ProfileLastThree />
         </div>
       );
     }

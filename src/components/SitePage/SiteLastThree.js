@@ -68,7 +68,6 @@ class LastThree extends Component {
                     <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                     <TableCell>{data.name}</TableCell>
                     <TableCell numeric>{data.status.userId.toString()}</TableCell>
-                    {/* <TableCell numeric>Email goes here</TableCell> */}
                     <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
                     <TableCell >{data.audit_data.reason.toString()}</TableCell>
                   </TableRow>
