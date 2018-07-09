@@ -24,7 +24,7 @@ passport.deserializeUser((id, done) => {
         is_active: user.is_active,
       };
       
-      console.log('user info: ', userInfo);
+      // console.log('user info: ', userInfo);
       
       done(null, userInfo);
     }

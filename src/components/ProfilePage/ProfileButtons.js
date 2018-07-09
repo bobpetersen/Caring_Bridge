@@ -23,6 +23,7 @@ class ProfileButtons extends Component {
     this.props.history.push('/approval');
   }
 
+
   render() {
     const { history } = this.props;
 
