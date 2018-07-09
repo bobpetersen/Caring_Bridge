@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileTableBody from './SiteTableBody';
+import ProfileButtons from '../ProfilePage/ProfileButtons';
+import Moment from 'react-moment';
+import {
+  Table, TableBody, TableCell,
+  TableHead, TableRow, Paper
+} from '@material-ui/core';
 
 
-const mapStateToProps = state => ({
-  profile: state.profile,
+
+const mapStateToProps = reduxState => ({
+  profileReducer: reduxState.profileReducer
 });
 
-class ProfileData extends Component {
+class ProfileLastThree extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +23,7 @@ class ProfileData extends Component {
 
   componentDidMount() {
     this.props.dispatch({
-      type: 'FETCH_PROFILE'
+      type: 'FETCH_PROFILES'
     })
   }
 
@@ -29,14 +35,45 @@ class ProfileData extends Component {
   }
 
   render() {
-    
+    const profileData = this.props.profileReducer.recentThreeProfiles
     return (
       <div>
         <h2>Last Three Profiles Processed</h2>
-        <ProfileTableBody />
+        <Paper>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Reviewed Site</TableCell>
+                <TableCell>Flagged</TableCell>
+                <TableCell>Profile ID</TableCell>
+                <TableCell>User Email</TableCell>
+                <TableCell>IP Address</TableCell>
+                <TableCell>User Created</TableCell>
+                <TableCell>Reasons Flagged</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              { profileData.map((data, i) => {
+                  return (
+                    <TableRow key={i}>
+                      <TableCell scope="row" padding="none">
+                        <ProfileButtons profile={data} buttonLabel="Review"/>
+                      </TableCell>
+                      <TableCell>{data.audit_data.flagged.toString()}</TableCell>
+                      <TableCell numeric>{data._id.toString()}</TableCell>
+                      <TableCell>{data.email.address}</TableCell>
+                      <TableCell>{data.ip}</TableCell>
+                      <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
+                      <TableCell >{data.audit_data.reason.toString()}</TableCell>
+                    </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Paper>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(ProfileData);
+export default connect(mapStateToProps)(ProfileLastThree);

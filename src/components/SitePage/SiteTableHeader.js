@@ -12,7 +12,6 @@ const columnHeader = [
   { id: 'createdAt', numeric: true, disablePadding: false, label: 'Site Created' },
   { id: 'user', numeric: false, disablePadding: true, label: 'User' },
   { id: '_id', numeric: true, disablePadding: false, label: 'User ID' },
-  // { id: 'email', numeric: false, disablePadding: true, label: 'User Email' },
   { id: 'createdAt', numeric: true, disablePadding: false, label: 'User Created' },
   { id: 'reasons', numeric: false, disablePadding: true, label: 'Reasons' },
 ];
