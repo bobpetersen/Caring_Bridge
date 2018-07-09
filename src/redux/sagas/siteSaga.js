@@ -24,6 +24,7 @@ function* getSites() {
 // set status of site
 // include action.payload with 'reset', 'spam', or 'notSpam'
 function* setSiteStatus(action) {
+
   let url = 'api/site/' + action.payload.status
   yield call(axios.put, url, 
             {id: action.payload.site._id,
