@@ -59,7 +59,7 @@ class ProfileLastThree extends Component {
                       <TableCell scope="row" padding="none">
                         <ProfileButtons profile={data} buttonLabel="Review"/>
                       </TableCell>
-                      <TableCell>{data.audit_data.flagged.toString()}</TableCell>
+                      <TableCell>{data.marked.toString()}</TableCell>
                       <TableCell numeric>{data._id.toString()}</TableCell>
                       <TableCell>{data.email.address}</TableCell>
                       <TableCell>{data.ip}</TableCell>
