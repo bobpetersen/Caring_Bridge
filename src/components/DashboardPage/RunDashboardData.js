@@ -17,7 +17,6 @@ class RunDashboardData extends Component {
         return (
             <div id="dashScanRun">
                 <div className="DashboardData">{dateFormat}</div>
-                <br />
                 Scan Run
             </div>
         );

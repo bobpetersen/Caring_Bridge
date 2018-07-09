@@ -32,7 +32,7 @@ class ProfileData extends Component {
     
     return (
       <div>
-        <h2>Last Three Profiles Processed</h2>
+        <h2>Recently Processed</h2>
         <ProfileTableBody />
       </div>
     );
