@@ -33,7 +33,6 @@ class ProfileView extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>Profile View</p>
         <ProfileData />
         <ProfileLastThree />
         </div>
