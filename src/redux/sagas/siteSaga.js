@@ -23,7 +23,6 @@ function* getSites() {
       let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
       site.user = user.data[0];
     }
-    let sites = yield callSite();
     yield put({
       type: 'SET_SITE',
       payload: sites,
