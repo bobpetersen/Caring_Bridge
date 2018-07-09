@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import { TextField, Button } from '@material-ui/core';
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class RegisterPage extends Component {
 
     if (this.state.username === '' || this.state.password === '') {
       this.setState({
-        message: 'Choose a username and password!',
+        message: 'Please choose a username and password',
       });
     } else {
       const body = {
@@ -41,6 +42,10 @@ class RegisterPage extends Component {
         .catch(() => {
         });
     }
+  }
+
+  handleClick = (event) => {
+    this.props.history.push('/home');
   }
 
   handleInputChange = (event) => {
@@ -69,14 +74,15 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
-        {this.renderAlert()}
-        <form onSubmit={this.registerUser}>
+      <div className="GridLoginView">
+        <h1 className="TitleLogin">Sift</h1>
+        <form className="Login" onSubmit={this.registerUser}>
+          <p id="alert">{this.renderAlert()}</p>
           <h1>Register User</h1>
           <div>
             <label htmlFor="username">
-              Username:
-              <input
+              <TextField
+                label="Username"
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -86,8 +92,8 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
-              <input
+              <TextField
+                label="Password"
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -96,12 +102,14 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            <input
+            <Button
               type="submit"
               name="submit"
               value="Register"
-            />
-            <Link to="/home">Cancel</Link>
+            >
+            Register
+            </Button>
+            <Button onClick={this.handleClick}>Cancel</Button>
           </div>
         </form>
       </div>

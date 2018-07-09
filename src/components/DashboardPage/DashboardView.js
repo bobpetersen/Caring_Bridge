@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
+import SiteDashboardData from './SiteDashboardData';
+import ProfileDashboardData from './ProfileDashboardData';
+import ScanDashboardData from './ScanDashboardData';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+import Header from '../Header/Header';
+import RunDashboardData from './RunDashboardData';
 
 
 const mapStateToProps = state => ({
@@ -15,7 +19,6 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
-      // fetch dashboard action data here
     });
   }
 
@@ -25,39 +28,27 @@ class Dashboard extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch({
-      type: LOGIN_ACTIONS.LOGOUT
-    });
-    // this.props.history.push('home');
-  }
-
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <h1
-            id="welcome"
-          >
-            Welcome, { this.props.user.userName }!
-          </h1>
-          <p>Dashboard View</p>
-           {/* insert Dashboard Data here ex. <DashboardData/> */}
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+        <div className="GridDashboard">
+          <h2 id="dashAllFlagged">All Flagged</h2>
+          <SiteDashboardData />
+          <ProfileDashboardData />
+          <h2 id="dashMostRecent">Most Recent Scan </h2>
+          <RunDashboardData />
+          <ScanDashboardData />
         </div>
       );
     }
 
     return (
       <div>
+        <Header />
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }

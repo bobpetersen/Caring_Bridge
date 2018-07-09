@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileData from './ProfileData'
+import Header from '../Header/Header';
 import Nav from '../../components/Nav/Nav';
 
+import ProfileData from './ProfileData'
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
+import ProfileLastThree from '../ProfilePage/ProfileLastThree';
 
 
 const mapStateToProps = state => ({
@@ -20,6 +20,12 @@ class ProfileView extends Component {
     });
   }
 
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
+  }
+
  
   render() {
     let content = null;
@@ -27,14 +33,15 @@ class ProfileView extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p>Profile View</p>
-        < ProfileData / >
+        <ProfileData />
+        <ProfileLastThree />
         </div>
       );
     }
 
     return (
       <div>
+        <Header />
         <Nav />
         { content }
       </div>

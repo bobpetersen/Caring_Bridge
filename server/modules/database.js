@@ -13,6 +13,9 @@ if (process.env.MONGODB_URI) {
   // Heroku will provide this when deployed
   // use the string value of the environment variable
   mongoURI = process.env.MONGODB_URI;
+} else if (process.env.DATABASE) {
+  // use database provided in the .env file
+  mongoURI = 'mongodb://' + process.env.DATABASE;
 } else {
   // use the local database server
   mongoURI = 'mongodb://localhost:27017/cb_data';
