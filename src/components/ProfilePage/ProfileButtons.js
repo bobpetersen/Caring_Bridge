@@ -30,7 +30,7 @@ class ProfileButtons extends Component {
     return (
       <div>
 
-        <Button onClick={this.handleClick}>Review</Button>
+        <Button onClick={this.handleClick}>{this.props.buttonLabel}</Button>
 
       </div>
     );
