@@ -1,11 +1,31 @@
 const router = require('express').Router();
 const Site = require('../models/Site');
+const SiteProfile = require('../models/SiteProfile');
+const Profile = require('../models/Profile');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // returns an array of site objects
 router.get('/', (req, res) => {
     Site.find({ 'audit_data.flagged': true })
         .then((results) => {
+            for (site of results) {
+                SiteProfile.find({ 'siteId': site._id }).sort({createdAt: -1})
+                    .then(relationship => {
+                        Profile.find({ '_id': relationship[0].userId })
+                            .then(profile => {
+                                site.user = profile[0];
+                                console.log(profile);
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                res.sendStatus(500);
+                            });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        res.sendStatus(500);
+                    });
+            }
             res.send(results);
         })
         .catch((error) => {

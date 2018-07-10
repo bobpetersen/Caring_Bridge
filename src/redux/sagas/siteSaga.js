@@ -19,14 +19,14 @@ function* getSites() {
       type: 'SET_SITE',
       payload: sites,
     });
-    for (let site of sites) {
-      let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
-      site.user = user.data[0];
-    }
-    yield put({
-      type: 'SET_SITE',
-      payload: sites,
-    });
+    // for (let site of sites) {
+    //   let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
+    //   site.user = user.data[0];
+    // }
+    // yield put({
+    //   type: 'SET_SITE',
+    //   payload: sites,
+    // });
   } catch (error) {
     console.log(`Error on getSites: ${error}`);
   };
