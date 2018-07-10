@@ -13,7 +13,16 @@ const allProfiles = (state = [], action) => {
 const recentThreeProfiles = (state = [], action) => {
     switch (action.type) {
         case 'CHANGE_RECENT_THREE':
-            if (state.length < 3) {
+            let index = -1;
+            for(let i = 0; i < state.length; i ++) {
+                if(state[i]._id === action.payload._id) {
+                    index = i;
+                }
+            }
+            if(index !== -1) { // found a match
+                state.splice(index, 1);
+                return [action.payload, ...state];
+            } else if (state.length < 3) {
                 return [action.payload, ...state];
             }
             else {
