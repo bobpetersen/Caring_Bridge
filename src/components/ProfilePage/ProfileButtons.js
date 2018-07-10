@@ -13,6 +13,15 @@ class ProfileButtons extends Component {
 
   // this component needs the profile info passed to it as a prop
   handleClick = () => {
+    if (this.props.buttonLabel === 'Edit') {
+      this.props.dispatch({
+        type: 'SET_PROFILE_STATUS',
+        payload: {
+          status: 'reset',
+          profile: this.props.profile,
+        },
+      });
+    }
     this.props.dispatch({
       type: 'APPROVAL_ITEM',
       payload: {

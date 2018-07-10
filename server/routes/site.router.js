@@ -58,11 +58,12 @@ router.put('/:status', (req, res) => {
     }
     else if (statusUpdate === 'safe') {
         Site.findByIdAndUpdate(req.body.id, {
+            isDeleted: '0',
             audit_data: {
                 result: statusUpdate,
                 flagged: false,
                 reason: req.body.reason,
-                auditedBy: req.body.auditedBy,
+                auditedBy: req.user.username,
             }
         })
             .then(() => {
@@ -73,7 +74,24 @@ router.put('/:status', (req, res) => {
                 res.sendStatus(500);
             });
     }
-
+    else if (statusUpdate === 'reset') {
+        Site.findByIdAndUpdate(req.body.id, {
+            isDeleted: '0',
+            audit_data: {
+                result: '',
+                flagged: true,
+                reason: req.body.reason,
+                auditedBy: req.user.username,
+            },
+        })
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
+    }
 });
 
 // for development only

@@ -12,6 +12,15 @@ class SiteButtons extends Component {
 
   // this component needs the site info passed to it as a prop
   handleClick = () => {
+    if (this.props.buttonLabel === 'Edit') {
+      this.props.dispatch({
+        type: 'SET_SITE_STATUS',
+        payload: {
+          status: 'reset',
+          site: this.props.site,
+        },
+      });
+    }
     this.props.dispatch({
       type: 'APPROVAL_ITEM',
       payload: {
